@@ -1,1 +1,1 @@
-# wks-tippmeister-client
+# wks-tippmeister
