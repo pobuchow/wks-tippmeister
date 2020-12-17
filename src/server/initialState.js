@@ -1,19 +1,23 @@
 export const initialState = {
     users: [{
         id:'1',
-        name: 'User A'
+        name: 'User A',
+        points: 3
     },
     {
         id:'2',
-        name: 'User B'
+        name: 'User B',
+        points: 2
     },
     {
         id:'3',
-        name: 'User C'
+        name: 'User C',
+        points: 2
     },
     {
         id:'4',
-        name: 'User D'
+        name: 'User D',
+        points: 6
     }],
     matches: [{
         id: '1',
