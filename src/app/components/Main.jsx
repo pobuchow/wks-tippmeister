@@ -6,7 +6,7 @@ import { ConnectedDashboard } from "./Dashboard";
 export const Main = () => (
   <Provider store={store}>
     <div>
-        <ConnectedDashboard />
+        <ConnectedDashboard gameId={1}/>
     </div>
   </Provider>
 );
