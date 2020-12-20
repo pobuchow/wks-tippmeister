@@ -3,19 +3,14 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { ConnectedNextMatch } from './NextMatch';
 import { ConnectedLastMatch } from './LastMatch';
+import { ConnectedScoreboard } from './Scoreboard';
 
-export const Dashboard = ({ matches }) => (
+export const Dashboard = ({ matches, users, scores }) => (
   <div>
     <h2>dashboard</h2>
     <ConnectedLastMatch matches={matches} />
     <ConnectedNextMatch matches={matches} />
-    {/* <Scoreboard users={game.users} scores={game.scores} /> */}
-    {/* {_.orderBy(users, ['points'], ['desc'])
-        .map(user =>(
-            <div>
-                {user.name} {user.points}
-            </div>
-        ))} */}
+    <ConnectedScoreboard users={users} scores={scores} />
   </div>
 );
 

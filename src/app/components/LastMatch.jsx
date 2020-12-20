@@ -4,7 +4,8 @@ import _ from "lodash";
 
 export const LastMatch = ({ event_datetime, homeTeam, awayTeam, goalsHomeTeam, goalsAwayTeam }) => (
     <div>
-        last match: {event_datetime.toLocaleDateString(undefined, { year: "numeric", month: "2-digit", day: "2-digit" })} {homeTeam} - {awayTeam} {goalsHomeTeam} : {goalsAwayTeam}
+        <h3>last match</h3>
+        {event_datetime.toLocaleDateString(undefined, { year: "numeric", month: "2-digit", day: "2-digit" })} {homeTeam} - {awayTeam} {goalsHomeTeam} : {goalsAwayTeam}
     </div>
   );
   

@@ -26,6 +26,11 @@ export const initialState = {
         id: 3,
         user: 3,
         points: 2
+    },
+    {
+        id: 4,
+        user: 4,
+        points: 7
     }],
     users: [{
         id: 1,

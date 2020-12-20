@@ -4,7 +4,8 @@ import _ from "lodash";
 
 export const NextMatch = ({ event_datetime, homeTeam, awayTeam }) => (
     <div>
-        next match: {event_datetime.toLocaleDateString(undefined, { year: "numeric", month: "2-digit", day: "2-digit" })} {homeTeam} - {awayTeam}
+      <h3>next match</h3>
+      {event_datetime.toLocaleDateString(undefined, { year: "numeric", month: "2-digit", day: "2-digit" })} {homeTeam} - {awayTeam}
     </div>
   );
   
