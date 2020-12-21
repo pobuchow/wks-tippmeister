@@ -14,8 +14,13 @@ export const Scoreboard = ({ scores }) => (
   );
   
   function mapState2Props(state, ownProps) {
-    let users = ownProps.users;
-    let scores = _.map(ownProps.scores, function(score){
+    let users = _.filter(state.users, function (user) {
+      return _.includes(ownProps.users, user.id);
+    });
+    let scores = _.filter(state.scores, function (score) {
+      return _.includes(ownProps.scores, score.id);
+    });
+    let scoresResult = _.map(scores, function(score){
       return {
         id: score.id,
         name: _.find(users, ['id', score.user]).name,
@@ -23,7 +28,7 @@ export const Scoreboard = ({ scores }) => (
       }
     })
     return {
-      'scores': scores
+      'scores': scoresResult
     }
   }
   

@@ -34,20 +34,19 @@ export const initialState = {
     }],
     users: [{
         id: 1,
-        name: 'User A',
+        name: 'User A'
     },
     {
         id: 2,
-        name: 'User B',
+        name: 'User B'
     },
     {
         id: 3,
-        name: 'User C',
+        name: 'User C'
     },
     {
         id: 4,
-        name: 'User D',
-        points: 6
+        name: 'User D'
     }],
     matches: [{
         id: 1,

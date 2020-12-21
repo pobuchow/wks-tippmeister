@@ -10,13 +10,14 @@ export const NextMatch = ({ event_datetime, homeTeam, awayTeam }) => (
   );
   
   function mapState2Props(state, ownProps) {
-    const matches = ownProps.matches;
-    let matchesInFuture = _.filter(matches, function(match){
+    const matches = _.filter(state.matches, function (match) {
+      return _.includes(ownProps.matches, match.id);
+    });
+    const matchesInFuture = _.filter(matches, function(match){
         return match.event_datetime > new Date()
     });
-    let matchesInFutureSortedAsc = _.orderBy(matchesInFuture, ['event_datetime'], ['asc']);
-    const nextMatch = _.head(matchesInFutureSortedAsc);
-    return nextMatch;
+    const matchesInFutureSortedAsc = _.orderBy(matchesInFuture, ['event_datetime'], ['asc']);
+    return _.head(matchesInFutureSortedAsc);
   }
   
   export const ConnectedNextMatch = connect(mapState2Props)(NextMatch);
