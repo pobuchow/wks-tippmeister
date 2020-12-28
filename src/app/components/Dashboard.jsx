@@ -10,7 +10,11 @@ export const Dashboard = ({ game }) => (
     <h2>dashboard</h2>
     <ConnectedLastMatch matches={game.matches} />
     <ConnectedNextMatch matches={game.matches} />
-    <ConnectedScoreboard users={game.users} scores={game.scores} />
+    <ConnectedScoreboard 
+      users={game.users} 
+      scores={game.scores} 
+      matches={game.matches}
+      bets={game.matches} />
   </div>
 );
 

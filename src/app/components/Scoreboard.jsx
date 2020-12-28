@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-
+import { matchService } from "../services/MatchService";
+ 
 export const Scoreboard = ({ scores }) => (
     <div>
         <h3>scoreboard</h3>
         {_.orderBy(scores, ['points'], ['desc']).map(score =>(
             <div key={score.id}>
-                {score.name} {score.points}
+                {score.name} {score.points} {score.bet ? score.bet.goalsHomeTeam : ''} {score.bet ? ' : ' : ''} {score.bet ? score.bet.goalsAwayTeam : ''}
             </div>
         ))}
     </div>
@@ -20,13 +21,21 @@ export const Scoreboard = ({ scores }) => (
     let scores = _.filter(state.scores, function (score) {
       return _.includes(ownProps.scores, score.id);
     });
+    let matches =_.filter(state.matches, function (match) {
+      return _.includes(ownProps.matches, match.id);
+    });
+    let nextMatch = matchService.getNextMatch(matches);
+    let nextBets =_.filter(state.bets, function (bet) {
+      return _.includes(ownProps.bets, bet.id) && bet.match === nextMatch.id;
+    });
     let scoresResult = _.map(scores, function(score){
       return {
         id: score.id,
         name: _.find(users, ['id', score.user]).name,
-        points: score.points
+        points: score.points,
+        bet: _.find(nextBets, ['owner', score.user])
       }
-    })
+    });
     return {
       'scores': scoresResult
     }

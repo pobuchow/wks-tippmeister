@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { matchService } from "../services/MatchService";
 
 export const NextMatch = ({ event_datetime, homeTeam, awayTeam }) => (
     <div>
@@ -13,11 +14,7 @@ export const NextMatch = ({ event_datetime, homeTeam, awayTeam }) => (
     const matches = _.filter(state.matches, function (match) {
       return _.includes(ownProps.matches, match.id);
     });
-    const matchesInFuture = _.filter(matches, function(match){
-        return match.event_datetime > new Date()
-    });
-    const matchesInFutureSortedAsc = _.orderBy(matchesInFuture, ['event_datetime'], ['asc']);
-    return _.head(matchesInFutureSortedAsc);
+    return matchService.getNextMatch(matches);
   }
   
   export const ConnectedNextMatch = connect(mapState2Props)(NextMatch);

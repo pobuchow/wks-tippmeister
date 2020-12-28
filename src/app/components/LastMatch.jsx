@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import _, { last } from "lodash";
+import { matchService } from "../services/MatchService";
 
 export const LastMatch = ({ event_datetime, homeTeam, awayTeam, goalsHomeTeam, goalsAwayTeam }) => (
     <div>
@@ -13,11 +14,7 @@ export const LastMatch = ({ event_datetime, homeTeam, awayTeam, goalsHomeTeam, g
     const matches = _.filter(state.matches, function (match) {
       return _.includes(ownProps.matches, match.id);
     });
-    const matchesInPast = _.filter(matches, function(match){
-        return match.event_datetime < new Date()
-    });
-    const matchesInPastSortedDesc = _.orderBy(matchesInPast, ['event_datetime'], ['desc']);
-    return _.head(matchesInPastSortedDesc);
+    return matchService.getLastMatch(matches);
   }
   
   export const ConnectedLastMatch = connect(mapState2Props)(LastMatch);
