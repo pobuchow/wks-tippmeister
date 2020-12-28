@@ -14,7 +14,7 @@ export const Dashboard = ({ game }) => (
       users={game.users} 
       scores={game.scores} 
       matches={game.matches}
-      bets={game.matches} />
+      bets={game.bets} />
   </div>
 );
 
