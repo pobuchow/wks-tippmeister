@@ -8,13 +8,12 @@ import { ConnectedScoreboard } from './Scoreboard';
 export const Dashboard = ({ game }) => (
   <div>
     <h2>dashboard</h2>
-    <ConnectedLastMatch matches={game.matches} />
-    <ConnectedNextMatch matches={game.matches} />
+    <ConnectedLastMatch game={game.id} />
+    <ConnectedNextMatch game={game.id} />
     <ConnectedScoreboard 
       users={game.users} 
       scores={game.scores} 
-      matches={game.matches}
-      bets={game.bets} />
+      game={game.id} />
   </div>
 );
 

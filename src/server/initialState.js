@@ -9,9 +9,6 @@ export const initialState = {
         ],
         scores: [
             1, 2, 3, 4
-        ],
-        bets: [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
         ]
     }],
     scores: [{
@@ -88,69 +85,79 @@ export const initialState = {
         match: 1,
         owner: 1,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 1
+        goalsAwayTeam: 1,
+        game: 1
     },
     {
         id: 2,
         match: 1,
         owner: 2,
         goalsHomeTeam: 2,
-        goalsAwayTeam: 1
+        goalsAwayTeam: 1,
+        game: 1
     },
     {
         id: 3,
         match: 1,
         owner: 3,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 2
+        goalsAwayTeam: 2,
+        game: 1
     },
     {
         id: 4,
         match: 1,
         owner: 4,
         goalsHomeTeam: 2,
-        goalsAwayTeam: 2
+        goalsAwayTeam: 2,
+        game: 1
     },
     {
         id: 5,
         match: 2,
         owner: 3,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 1
+        goalsAwayTeam: 1,
+        game: 1
     },
     {
         id: 6,
         match: 2,
         owner: 4,
         goalsHomeTeam: 3,
-        goalsAwayTeam: 1
+        goalsAwayTeam: 1,
+        game: 1
     },
     {
         id: 7,
         match: 2,
         owner: 1,
         goalsHomeTeam: 0,
-        goalsAwayTeam: 0
+        goalsAwayTeam: 0,
+        game: 1
     },
     {
         id: 8,
         match: 2,
         owner: 2,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 3
+        goalsAwayTeam: 3,
+        game: 1
     },
     {
         id: 9,
         match: 3,
         owner: 3,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 0
+        goalsAwayTeam: 0,
+        game: 1
     },
     {
         id: 10,
         match: 3,
         owner: 4,
         goalsHomeTeam: 1,
-        goalsAwayTeam: 1
+        goalsAwayTeam: 1,
+        game: 1
     }]
 }

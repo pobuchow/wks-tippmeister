@@ -11,8 +11,9 @@ export const LastMatch = ({ event_datetime, homeTeam, awayTeam, goalsHomeTeam, g
   );
   
   function mapState2Props(state, ownProps) {
+    const game = _.find(state.games, { 'id': ownProps.game });
     const matches = _.filter(state.matches, function (match) {
-      return _.includes(ownProps.matches, match.id);
+      return _.includes(game.matches, match.id);
     });
     return matchService.getLastMatch(matches);
   }

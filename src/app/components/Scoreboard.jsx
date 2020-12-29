@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { ConnectedNextBet } from "./NextBet";
 
-export const Scoreboard = ({ scores }) => (
+export const Scoreboard = ({ scores, gameId }) => (
   <div>
     <h3>scoreboard</h3>
     {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
       <div key={score.id}>
         {score.user.name} {score.points}{" "}
-        <ConnectedNextBet matches={score.matches} bets={score.bets} user={score.user.id} />
+        <ConnectedNextBet gameId={gameId} userId={score.user.id} />
       </div>
     ))}
   </div>
@@ -31,11 +31,10 @@ function mapState2Props(state, ownProps) {
         name: _.find(users, ["id", score.user]).name,
       },
       points: score.points,
-      matches: ownProps.matches,
-      bets: ownProps.bets,
     };
   });
   return {
+    gameId: ownProps.game,
     scores: scoresResult,
   };
 }

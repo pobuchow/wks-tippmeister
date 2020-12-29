@@ -14,14 +14,15 @@ export const NextBet = ({ bet }) => (
 );
 
 function mapState2Props(state, ownProps) {
+  const game = _.find(state.games, { 'id': ownProps.gameId });
   let matches =_.filter(state.matches, function (match) {
-    return _.includes(ownProps.matches, match.id);
+    return _.includes(game.matches, match.id);
   });
   let nextMatch = matchService.getNextMatch(matches);
   let nextBets =_.filter(state.bets, function (bet) {
-    return _.includes(ownProps.bets, bet.id) && bet.match === nextMatch.id;
+    return bet.game === game.id && bet.match === nextMatch.id;
   });
-  let bet = _.find(nextBets, ["owner", ownProps.user]);
+  let bet = _.find(nextBets, ["owner", ownProps.userId]);
   return {
     bet: bet
   };
