@@ -4,16 +4,16 @@ import _ from "lodash";
 import { matchService } from "../services/MatchService";
 import { requestBetMatch } from '../store/mutations';
 
-export const NextMatch = ({ id, event_datetime, homeTeam, awayTeam, betMatch }) => (
+export const NextMatch = ({ match, betMatch }) => (
   <div>
     <h3>next match</h3>
-    {event_datetime.toLocaleDateString(undefined, {
+    {match.event_datetime.toLocaleDateString(undefined, {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
     })}{" "}
-    {homeTeam} - {awayTeam}
-    <button onClick={() => betMatch(id)}>bet this match!</button>
+    {match.homeTeam} - {match.awayTeam}
+    <button onClick={() => betMatch(match.id)}>bet this match!</button>
   </div>
 );
   
@@ -22,13 +22,16 @@ export const NextMatch = ({ id, event_datetime, homeTeam, awayTeam, betMatch }) 
     const matches = _.filter(state.matches, function (match) {
       return _.includes(game.matches, match.id);
     });
-    return matchService.getNextMatch(matches);
+    return {
+      match: matchService.getNextMatch(matches)
+    }
   }
 
   const mapDispatchToProps = (dispatch, ownProps) => {
+    const gameId = ownProps.game;
     return {
-      betMatch(id){
-        dispatch(requestBetMatch(id));
+      betMatch(matchId){
+        dispatch(requestBetMatch(gameId, matchId));
       }
     }
   }
