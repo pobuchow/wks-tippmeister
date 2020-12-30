@@ -4,6 +4,7 @@ import _ from "lodash";
 import { ConnectedNextMatch } from './NextMatch';
 import { ConnectedLastMatch } from './LastMatch';
 import { ConnectedScoreboard } from './Scoreboard';
+import { useParams } from 'react-router-dom';
 
 export const Dashboard = ({ game }) => (
   <div>
@@ -18,8 +19,8 @@ export const Dashboard = ({ game }) => (
 );
 
 function mapState2Props(state, ownProps) {
-  const gameId = ownProps.gameId;
-  const game = _.find(state.games, ["id", gameId]);
+  const gameId = ownProps.match.params.id;
+  const game = _.find(state.games, ["id", _.parseInt(gameId)]);
   return {
     game: game
   };
