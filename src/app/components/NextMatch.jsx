@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { matchService } from "../services/MatchService";
-import { requestBetMatch } from '../store/mutations';
+import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
 
-export const NextMatch = ({ match, betMatch }) => (
+export const NextMatch = ({ match, gameId }) => (
   <div>
     <h3>next match</h3>
     {match.event_datetime.toLocaleDateString(undefined, {
@@ -13,7 +13,7 @@ export const NextMatch = ({ match, betMatch }) => (
       day: "2-digit",
     })}{" "}
     {match.homeTeam} - {match.awayTeam}
-    <button onClick={() => betMatch(match.id)}>bet this match!</button>
+    <ConnectedBetNextMatchForm matchId={match.id} gameId={gameId} />
   </div>
 );
   
@@ -23,17 +23,9 @@ export const NextMatch = ({ match, betMatch }) => (
       return _.includes(game.matches, match.id);
     });
     return {
+      gameId: game.id,
       match: matchService.getNextMatch(matches)
     }
   }
-
-  const mapDispatchToProps = (dispatch, ownProps) => {
-    const gameId = ownProps.game;
-    return {
-      betMatch(matchId){
-        dispatch(requestBetMatch(gameId, matchId));
-      }
-    }
-  }
   
-  export const ConnectedNextMatch = connect(mapState2Props, mapDispatchToProps)(NextMatch);
+  export const ConnectedNextMatch = connect(mapState2Props)(NextMatch);
