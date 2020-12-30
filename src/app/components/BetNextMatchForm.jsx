@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { requestBetMatch } from '../store/mutations';
 
-export const BetNextMatchForm = ({ matchId, betMatch }) => (
-  <div>
-    <button onClick={() => betMatch(matchId)}>bet this match!</button>
-  </div>
-);
+export const BetNextMatchForm = ({ match, betMatch }) => {
+  const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);
+  const [goalsAwayTeam, setGoalsAwayTeam] = useState(0);
+
+  return (
+    <div>
+      <form onSubmit={() => betMatch(match.id)}>
+        <label>
+          {match.homeTeam}
+          <input 
+            type="number" 
+            value={goalsHomeTeam} 
+            onChange={e => setGoalsHomeTeam(e.target.value)}
+          />
+        </label>
+        <label>
+          {match.awayTeam}
+          <input 
+            type="number" 
+            value={goalsAwayTeam} 
+            onChange={e => setGoalsAwayTeam(e.target.value)}  
+          />
+        </label>
+        <input type="submit" value="bet this match!" />
+      </form>
+    </div>
+  );
+};
   
   function mapState2Props(state, ownProps) {
     return {
-      matchId: ownProps.matchId,
+      match: ownProps.match,
     }
   }
 

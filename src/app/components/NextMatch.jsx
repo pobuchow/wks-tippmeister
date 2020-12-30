@@ -13,7 +13,7 @@ export const NextMatch = ({ match, gameId }) => (
       day: "2-digit",
     })}{" "}
     {match.homeTeam} - {match.awayTeam}
-    <ConnectedBetNextMatchForm matchId={match.id} gameId={gameId} />
+    <ConnectedBetNextMatchForm match={match} gameId={gameId} />
   </div>
 );
   
