@@ -17,8 +17,8 @@ export const store = createStore(
                             match: action.matchId,
                             owner: action.ownerId,
                             game: action.gameId,
-                            goalsHomeTeam: 0,
-                            goalsAwayTeam: 0
+                            goalsHomeTeam: action.goalsHomeTeam,
+                            goalsAwayTeam: action.goalsAwayTeam
                     }]
             }
             return bets;

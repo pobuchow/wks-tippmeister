@@ -5,9 +5,9 @@ import _ from "lodash";
 
 export function* betMatchSaga(){
     while (true) {
-        const args = _.pick(yield take(mutations.REQUEST_BET_MATCH), ['gameId', 'matchId']);
+        const args = _.pick(yield take(mutations.REQUEST_BET_MATCH), ['gameId', 'matchId', 'goalsHomeTeam', 'goalsAwayTeam']);
         const ownerId = 1;
         const betId = uuid();
-        yield put(mutations.betMatch(betId, args.gameId, args.matchId, ownerId));
+        yield put(mutations.betMatch(betId, args.gameId, args.matchId, ownerId, args.goalsHomeTeam, args.goalsAwayTeam));
     }
 }

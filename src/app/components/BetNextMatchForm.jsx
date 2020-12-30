@@ -9,7 +9,7 @@ export const BetNextMatchForm = ({ match, betMatch }) => {
 
   return (
     <div>
-      <form onSubmit={() => betMatch(match.id)}>
+      <form onSubmit={() => betMatch(match.id, goalsHomeTeam, goalsAwayTeam)}>
         <label>
           {match.homeTeam}
           <input 
@@ -41,8 +41,8 @@ export const BetNextMatchForm = ({ match, betMatch }) => {
   const mapDispatchToProps = (dispatch, ownProps) => {
     const gameId = ownProps.gameId;
     return {
-      betMatch(matchId){
-        dispatch(requestBetMatch(gameId, matchId));
+      betMatch(matchId, goalsHomeTeam, goalsAwayTeam){
+        dispatch(requestBetMatch(gameId, matchId, goalsHomeTeam, goalsAwayTeam));
       }
     }
   }
