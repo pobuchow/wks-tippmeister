@@ -8,10 +8,6 @@ let app = express();
 
 app.listen(port, console.log('Server is running on port', port));
 
-/* app.get('/', (request, response)=>{
-    response.send('hello express');
-}); */
-
 app.use(
     cors(),
     bodyParser.urlencoded({extended: true}),

@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { initialState } from '../../server/initialState';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import { betMatchSaga } from './sagas.mock';
+import * as sagas from './sagas';
 import * as mutations from './mutations';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -39,4 +39,6 @@ export const store = createStore(
     applyMiddleware(createLogger(), sagaMiddleware)
 );
 
-sagaMiddleware.run(betMatchSaga);
+for( let saga in sagas ){
+    sagaMiddleware.run(sagas[saga]);
+}
