@@ -7,8 +7,15 @@ const authenticationTokens = [];
 async function assembleUserState(user){
     let db = await connectDB();
     let games = await db.collection(`games`).find({"users" : {"$in" : [user.id]}}).toArray();
+    let scores = await db.collection(`scores`).find({"id": {"$in": games.flatMap(game => game.scores)}}).toArray();
+    let matches = await db.collection(`matches`).find({"id": {"$in": games.flatMap(game => game.matches)}}).toArray();
+    let users = await db.collection(`users`).find({"id": {"$in": games.flatMap(game => game.users)}}).toArray();
+    let bets = await db.collection(`bets`).find({"game": {"$in": games.flatMap(game => game.id)}}).toArray();
     return {
-        games,
+        scores,
+        matches,
+        users,
+        bets,
         session: {
             authenticated: `AUTHENTICATED`, id: user.id
         }
