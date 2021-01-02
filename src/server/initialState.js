@@ -1,4 +1,8 @@
+import md5 from 'md5';
 export const initialState = {
+    session: {
+        authenticated: false
+    },
     games: [{
         id: 1,
         users: [
@@ -31,19 +35,23 @@ export const initialState = {
     }],
     users: [{
         id: 1,
-        name: 'User A'
+        name: 'User A',
+        password: md5("passa")
     },
     {
         id: 2,
-        name: 'User B'
+        name: 'User B',
+        password: md5("passb")
     },
     {
         id: 3,
-        name: 'User C'
+        name: 'User C',
+        password: md5("passc")
     },
     {
         id: 4,
-        name: 'User D'
+        name: 'User D',
+        password: md5("passd")
     }],
     matches: [{
         id: 1,
