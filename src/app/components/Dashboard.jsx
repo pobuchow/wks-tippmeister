@@ -4,7 +4,6 @@ import _ from "lodash";
 import { ConnectedNextMatch } from './NextMatch';
 import { ConnectedLastMatch } from './LastMatch';
 import { ConnectedScoreboard } from './Scoreboard';
-import { useParams } from 'react-router-dom';
 
 export const Dashboard = ({ game }) => (
   <div>

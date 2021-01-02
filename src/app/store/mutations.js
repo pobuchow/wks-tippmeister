@@ -7,6 +7,8 @@ export const AUTHENTICATING = `AUTHENTICATING`;
 export const AUTHENTICATED = `AUTHENTICATED`;
 export const NOT_AUTHENTICATED = `NOT_AUTHENTICATED`;
 
+export const LOAD_STATE = `LOAD_STATE`;
+
 export const requestBetMatch = (gameId, matchId, goalsHomeTeam, goalsAwayTeam) => ({
     type:REQUEST_BET_MATCH,
     gameId,
@@ -35,4 +37,9 @@ export const processAuthenticateUser = (status = AUTHENTICATING, session = null)
     type: PROCESSING_AUTHENTICATE_USER,
     session,
     authenticated: status
+});
+
+export const loadState = (state = {}) => ({
+    type: LOAD_STATE,
+    state
 });

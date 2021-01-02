@@ -12,6 +12,7 @@ async function assembleUserState(user){
     let users = await db.collection(`users`).find({"id": {"$in": games.flatMap(game => game.users)}}).toArray();
     let bets = await db.collection(`bets`).find({"game": {"$in": games.flatMap(game => game.id)}}).toArray();
     return {
+        games,
         scores,
         matches,
         users,

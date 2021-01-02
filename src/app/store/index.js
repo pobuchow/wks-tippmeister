@@ -16,12 +16,14 @@ export const store = createStore(
                     return {...userSession, authenticated: mutations.AUTHENTICATING};
                 case mutations.PROCESSING_AUTHENTICATE_USER:
                     return {...userSession, authenticated};
+                case mutations.LOAD_STATE:
+                    return {...userSession, id: action.state.session.id};
                 default:
                     return userSession;
             }
             return session;
         },
-        bets(bets = initialState.bets, action){
+        bets(bets = [], action){
             switch(action.type){
                 case mutations.BET_MATCH : 
                     return [...bets, {
@@ -31,20 +33,42 @@ export const store = createStore(
                             game: action.gameId,
                             goalsHomeTeam: action.goalsHomeTeam,
                             goalsAwayTeam: action.goalsAwayTeam
-                    }]
+                    }];
+                case mutations.LOAD_STATE:
+                    return action.state.bets;
             }
             return bets;
         },
-        matches(matches = initialState.matches){
+        matches(matches = [], action){
+            switch(action.type){
+                case mutations.LOAD_STATE:
+                    let matches = action.state.matches;
+                    matches.forEach(match => {
+                        match.event_datetime = new Date(match.event_datetime);
+                    });
+                    return matches;
+            }
             return matches;
         },
-        games(games = initialState.games){
+        games(games = [], action){
+            switch(action.type){
+                case mutations.LOAD_STATE:
+                    return action.state.games;
+            }
             return games;
         },
-        users(users = initialState.users){
+        users(users = [], action){
+            switch(action.type){
+                case mutations.LOAD_STATE:
+                    return action.state.users;
+            }
             return users;
         },
-        scores(scores = initialState.scores){
+        scores(scores = [], action){
+            switch(action.type){
+                case mutations.LOAD_STATE:
+                    return action.state.scores;
+            }
             return scores;
         }       
     }),

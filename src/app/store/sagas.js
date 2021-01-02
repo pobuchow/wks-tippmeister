@@ -33,6 +33,8 @@ export function* userAuthenticationSaga(){
             if(!data){
                 throw new Error();
             }
+            yield put(mutations.loadState(data.state));
+            yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
         } catch (e){
             console.log('cannot authenticate user');
             yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
