@@ -30,7 +30,6 @@ export const Main = () => {
             <Route
               exact
               path="/game/:id/dashboard"
-              //render={({match}) => (<ConnectedDashboard match={match} />)}
               render={RouteGuard(ConnectedDashboard)}
             />
           </Switch>
