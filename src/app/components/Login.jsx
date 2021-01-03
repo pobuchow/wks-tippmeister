@@ -11,13 +11,13 @@ const Login = ({authenticateUser, authenticated}) => {
             name="username" 
             id="username" 
             placeholder="username"
-            defaultValue="Dev"
+            defaultValue="User A"
         />
         <input 
             type="password" 
             name="password" 
             id="password"
-            defaultValue=""
+            defaultValue="passa"
         />
         {authenticated === mutations.NOT_AUTHENTICATED ? <p>Login incorrect</p> : null}
         <button type="submit">

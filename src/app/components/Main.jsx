@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { store } from "../store";
 import { ConnectedDashboard } from "./Dashboard";
 import { ConnectedLogin } from "./Login";
 import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
 import { Redirect } from 'react-router';
-// import { history } from "../store/history";
+import { history } from "../store/history";
 import { ConnectedNavigation } from "./Navigation";
+import { ConnectedGameboard } from "./Gameboard";
 
 const RouteGuard = Component => ({match}) => {
   if(!store.getState().session.authenticated){
@@ -17,10 +18,9 @@ const RouteGuard = Component => ({match}) => {
 
 export const Main = () => {
   return (
-    <BrowserRouter /* history={history} */>
+    <Router history={history}>
       <Provider store={store}>
         <div>
-          <ConnectedNavigation />
           <Switch>
           <Route
               exact
@@ -29,12 +29,12 @@ export const Main = () => {
             />
             <Route
               exact
-              path="/game/:id/dashboard"
-              render={RouteGuard(ConnectedDashboard)}
+              path="/games"
+              render={RouteGuard(ConnectedGameboard)}
             />
           </Switch>
         </div>
       </Provider>
-    </BrowserRouter>
+    </Router>
   );
 };

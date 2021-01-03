@@ -3,6 +3,7 @@ import axios from 'axios';
 const uuid = require('uuid').v4;
 import * as mutations from './mutations';
 import _ from "lodash";
+import {history} from './history';
 
 const url = "http://localhost:8080";
 
@@ -35,6 +36,7 @@ export function* userAuthenticationSaga(){
             }
             yield put(mutations.loadState(data.state));
             yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
+            history.push('/games');
         } catch (e){
             console.log('cannot authenticate user');
             yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
