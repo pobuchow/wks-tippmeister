@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { requestBetMatch } from "../store/mutations";
 
-export const BetNextMatchForm = ({ match, betMatch }) => {
+export const BetNextMatchForm = ({ match, userId, betMatch }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);
   const [goalsAwayTeam, setGoalsAwayTeam] = useState(0);
 
@@ -28,7 +28,7 @@ export const BetNextMatchForm = ({ match, betMatch }) => {
         </label>
         <button
           type="button"
-          onClick={() => betMatch(match.id, goalsHomeTeam, goalsAwayTeam)}
+          onClick={() => betMatch(userId, match.id, goalsHomeTeam, goalsAwayTeam)}
         >
           bet this match!
         </button>
@@ -39,6 +39,7 @@ export const BetNextMatchForm = ({ match, betMatch }) => {
 
 function mapState2Props(state, ownProps) {
   return {
+    userId: state.session.id,
     match: ownProps.match,
   };
 }
@@ -46,8 +47,8 @@ function mapState2Props(state, ownProps) {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const gameId = ownProps.gameId;
   return {
-    betMatch(matchId, goalsHomeTeam, goalsAwayTeam) {
-      dispatch(requestBetMatch(gameId, matchId, goalsHomeTeam, goalsAwayTeam));
+    betMatch(userId, matchId, goalsHomeTeam, goalsAwayTeam) {
+      dispatch(requestBetMatch(userId, gameId, matchId, goalsHomeTeam, goalsAwayTeam));
     },
   };
 };

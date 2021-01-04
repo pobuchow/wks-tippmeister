@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { matchService } from "../services/MatchService";
 
-export const NextBet = ({ bet }) => bet ? (
+export const NextBet = ({ bet }) => bet && bet.id ? (
   <div style={{display: 'inline-block'}}>
     {bet ? 
         <div key={bet.id}>
@@ -20,7 +20,7 @@ function mapState2Props(state, ownProps) {
   });
   let nextMatch = matchService.getNextMatch(matches);
   if(!nextMatch){
-    return;
+    return {};
   }
   let nextBets =_.filter(state.bets, function (bet) {
     return bet.game === game.id && bet.match === nextMatch.id;

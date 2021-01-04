@@ -9,8 +9,9 @@ export const NOT_AUTHENTICATED = `NOT_AUTHENTICATED`;
 
 export const LOAD_STATE = `LOAD_STATE`;
 
-export const requestBetMatch = (gameId, matchId, goalsHomeTeam, goalsAwayTeam) => ({
+export const requestBetMatch = (userId, gameId, matchId, goalsHomeTeam, goalsAwayTeam) => ({
     type:REQUEST_BET_MATCH,
+    userId,
     gameId,
     matchId, 
     goalsHomeTeam, 
