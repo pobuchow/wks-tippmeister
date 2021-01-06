@@ -19,7 +19,7 @@ export const Dashboard = ({ game }) => (
 
 function mapState2Props(state, ownProps) {
   const gameId = ownProps.match.params.id;
-  const game = _.find(state.games, ["id", _.parseInt(gameId)]);
+  const game = _.find(state.games, ["id", gameId]);
   return {
     game: game
   };

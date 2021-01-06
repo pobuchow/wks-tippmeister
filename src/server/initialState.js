@@ -4,91 +4,93 @@ export const initialState = {
         authenticated: false
     },
     games: [{
-        id: 2,
+        id: '2',
         name: 'saison 2019/20',
         users: [
-            1, 2, 3, 4
+            '1', '2', '3', '4'
         ],
         matches: [
-            5, 6, 7, 8
+            '5', '6', '7', '8'
         ],
         scores: [
-            5, 6, 7, 8
+            '5', '6', '7', '8'
         ],
+        hosts: ['2'],
         isFinished: true
     },{
-        id: 1,
+        id: '1',
         name: 'saison 2020/21',
         users: [
-            1, 2, 3, 4
+            '1', '2', '3', '4'
         ],
         matches: [
-            1, 2, 3, 4
+            '1', '2', '3', '4'
         ],
         scores: [
-            1, 2, 3, 4
+            '1', '2', '3', '4'
         ],
+        hosts: ['1'],
         isFinished: false
     }],
     scores: [{
-        id: 1,
-        user: 1,
+        id: '1',
+        user: '1',
         points: 3
     },{
-        id: 2,
-        user: 2,
+        id: '2',
+        user: '2',
         points: 2
     },{
-        id: 3,
-        user: 3,
+        id: '3',
+        user: '3',
         points: 2
     },{
-        id: 4,
-        user: 4,
+        id: '4',
+        user: '4',
         points: 7
     },{
-        id: 5,
-        user: 1,
+        id: '5',
+        user: '1',
         points: 4
     },{
-        id: 6,
-        user: 2,
+        id: '6',
+        user: '2',
         points: 6
     },{
-        id: 7,
-        user: 3,
+        id: '7',
+        user: '3',
         points: 3
     },{
-        id: 8,
-        user: 4,
+        id: '8',
+        user: '4',
         points: 5
     }],
     users: [{
-        id: 1,
+        id: '1',
         name: 'User A',
         password: md5("passa")
     },{
-        id: 2,
+        id: '2',
         name: 'User B',
         password: md5("passb")
     },{
-        id: 3,
+        id: '3',
         name: 'User C',
         password: md5("passc")
     },{
-        id: 4,
+        id: '4',
         name: 'User D',
         password: md5("passd")
     }],
     matches: [{
-        id: 1,
+        id: '1',
         event_datetime: new Date(2020, 12-1, 17, 18, 0, 0, 0),
         homeTeam: 'Śląsk Wrocław',
         awayTeam: 'Warta Poznań',
         goalsHomeTeam: 2,
         goalsAwayTeam: 1
     },{
-        id: 2,
+        id: '2',
         event_datetime: new Date(2020, 12-1, 11, 18, 0, 0, 0),
         event_time: '18:00',
         homeTeam: 'Zagłębie Lubin',
@@ -96,7 +98,7 @@ export const initialState = {
         goalsHomeTeam: 2,
         goalsAwayTeam: 1
     },{
-        id: 3,
+        id: '3',
         event_datetime: new Date(2021, 2-1, 1, 18, 0, 0, 0),
         event_time: '18:00',
         homeTeam: 'Stal Mielec',
@@ -104,7 +106,7 @@ export const initialState = {
         goalsHomeTeam: null,
         goalsAwayTeam: null
     },{
-        id: 4,
+        id: '4',
         event_datetime: new Date(2021, 2-1, 6, 18, 0, 0, 0),
         event_time: '18:00',
         homeTeam: 'Piast Gliwice',
@@ -112,28 +114,28 @@ export const initialState = {
         goalsHomeTeam: null,
         goalsAwayTeam: null
     },{
-        id: 5,
+        id: '5',
         event_datetime: new Date(2019, 7-1, 19, 17, 30, 0, 0),
         homeTeam: 'Śląsk Wrocław',
         awayTeam: 'Lechia Gdańsk',
         goalsHomeTeam: 1,
         goalsAwayTeam: 2
     },{
-        id: 6,
+        id: '6',
         event_datetime: new Date(2019, 7-1, 15, 20, 30, 0, 0),
         homeTeam: 'Jagiellonia Białystok',
         awayTeam: 'Śląsk Wrocław',
         goalsHomeTeam: 2,
         goalsAwayTeam: 1
     },{
-        id: 7,
+        id: '7',
         event_datetime: new Date(2019, 7-1, 12, 12, 30, 0, 0),
         homeTeam: 'Śląsk Wrocław',
         awayTeam: 'Pogoń Szczecin',
         goalsHomeTeam: 2,
         goalsAwayTeam: 2
     },{
-        id: 8,
+        id: '8',
         event_datetime: new Date(2019, 7-1, 5, 17, 30, 0, 0),
         homeTeam: 'Piast Gliwice',
         awayTeam: 'Śląsk Wrocław',
@@ -141,186 +143,186 @@ export const initialState = {
         goalsAwayTeam: 0
     }],
     bets: [{
-        id: 1,
-        match: 1,
-        owner: 1,
+        id: '1',
+        match: '1',
+        owner: '1',
         goalsHomeTeam: 1,
         goalsAwayTeam: 1,
-        game: 1
+        game: '1'
     },{
-        id: 2,
-        match: 1,
-        owner: 2,
+        id: '2',
+        match: '1',
+        owner: '2',
         goalsHomeTeam: 2,
         goalsAwayTeam: 1,
-        game: 1
+        game: '1'
     },{
-        id: 3,
-        match: 1,
-        owner: 3,
+        id: '3',
+        match: '1',
+        owner: '3',
         goalsHomeTeam: 1,
         goalsAwayTeam: 2,
-        game: 1
+        game: '1'
     },{
-        id: 4,
-        match: 1,
-        owner: 4,
+        id: '4',
+        match: '1',
+        owner: '4',
         goalsHomeTeam: 2,
         goalsAwayTeam: 2,
-        game: 1
+        game: '1'
     },{
-        id: 5,
-        match: 2,
-        owner: 3,
+        id: '5',
+        match: '2',
+        owner: '3',
         goalsHomeTeam: 1,
         goalsAwayTeam: 1,
-        game: 1
+        game: '1'
     },{
-        id: 6,
-        match: 2,
-        owner: 4,
+        id: '6',
+        match: '2',
+        owner: '4',
         goalsHomeTeam: 3,
         goalsAwayTeam: 1,
-        game: 1
+        game: '1'
     },{
-        id: 7,
-        match: 2,
-        owner: 1,
+        id: '7',
+        match: '2',
+        owner: '1',
         goalsHomeTeam: 0,
         goalsAwayTeam: 0,
-        game: 1
+        game: '1'
     },{
-        id: 8,
-        match: 2,
-        owner: 2,
+        id: '8',
+        match: '2',
+        owner: '2',
         goalsHomeTeam: 1,
         goalsAwayTeam: 3,
-        game: 1
+        game: '1'
     },{
-        id: 9,
-        match: 3,
-        owner: 3,
+        id: '9',
+        match: '3',
+        owner: '3',
         goalsHomeTeam: 1,
         goalsAwayTeam: 0,
-        game: 1
+        game: '1'
     },{
-        id: 10,
-        match: 3,
-        owner: 4,
+        id: '10',
+        match: '3',
+        owner: '4',
         goalsHomeTeam: 1,
         goalsAwayTeam: 1,
-        game: 1
+        game: '1'
     },{
-        id: 11,
-        match: 5,
-        owner: 1,
+        id: '11',
+        match: '5',
+        owner: '1',
         goalsHomeTeam: 1,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 12,
-        match: 5,
-        owner: 2,
+        id: '12',
+        match: '5',
+        owner: '2',
         goalsHomeTeam: 2,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 13,
-        match: 5,
-        owner: 3,
+        id: '13',
+        match: '5',
+        owner: '3',
         goalsHomeTeam: 0,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 14,
-        match: 5,
-        owner: 4,
+        id: '14',
+        match: '5',
+        owner: '4',
         goalsHomeTeam: 3,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 15,
-        match: 6,
-        owner: 1,
+        id: '15',
+        match: '6',
+        owner: '1',
         goalsHomeTeam: 0,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 16,
-        match: 6,
-        owner: 2,
+        id: '16',
+        match: '6',
+        owner: '2',
         goalsHomeTeam: 2,
         goalsAwayTeam: 0,
-        game: 2
+        game: '2'
     },{
-        id: 17,
-        match: 6,
-        owner: 3,
+        id: '17',
+        match: '6',
+        owner: '3',
         goalsHomeTeam: 0,
         goalsAwayTeam: 0,
-        game: 2
+        game: '2'
     },{
-        id: 18,
-        match: 6,
-        owner: 4,
+        id: '18',
+        match: '6',
+        owner: '4',
         goalsHomeTeam: 1,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 19,
-        match: 7,
-        owner: 1,
+        id: '19',
+        match: '7',
+        owner: '1',
         goalsHomeTeam: 0,
         goalsAwayTeam: 3,
-        game: 2
+        game: '2'
     },{
-        id: 20,
-        match: 7,
-        owner: 2,
+        id: '20',
+        match: '7',
+        owner: '2',
         goalsHomeTeam: 2,
         goalsAwayTeam: 2,
-        game: 2
+        game: '2'
     },{
-        id: 21,
-        match: 7,
-        owner: 3,
+        id: '21',
+        match: '7',
+        owner: '3',
         goalsHomeTeam: 0,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 22,
-        match: 7,
-        owner: 4,
+        id: '22',
+        match: '7',
+        owner: '4',
         goalsHomeTeam: 0,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 23,
-        match: 8,
-        owner: 1,
+        id: '23',
+        match: '8',
+        owner: '1',
         goalsHomeTeam: 2,
         goalsAwayTeam: 3,
-        game: 2
+        game: '2'
     },{
-        id: 24,
-        match: 8,
-        owner: 2,
+        id: '24',
+        match: '8',
+        owner: '2',
         goalsHomeTeam: 3,
         goalsAwayTeam: 2,
-        game: 2
+        game: '2'
     },{
-        id: 25,
-        match: 8,
-        owner: 3,
+        id: '25',
+        match: '8',
+        owner: '3',
         goalsHomeTeam: 2,
         goalsAwayTeam: 1,
-        game: 2
+        game: '2'
     },{
-        id: 26,
-        match: 8,
-        owner: 4,
+        id: '26',
+        match: '8',
+        owner: '4',
         goalsHomeTeam: 0,
         goalsAwayTeam: 3,
-        game: 2
+        game: '2'
     }]
 }

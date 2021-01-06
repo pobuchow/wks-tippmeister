@@ -28,3 +28,15 @@ app.post('/bets', async (request, response) => {
     await addNewBet(bet);
     response.status(200).send();
 });
+
+export const createGame = async game => {
+    let db = await connectDB();
+    let collection = db.collection(`games`);
+    await collection.insertOne(game);
+};
+
+app.post('/games', async (request, response) => {
+    let game = request.body.game;
+    await createGame(game);
+    response.status(200).send();
+});

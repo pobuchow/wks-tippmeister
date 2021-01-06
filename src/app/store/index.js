@@ -51,6 +51,12 @@ export const store = createStore(
         },
         games(games = [], action){
             switch(action.type){
+                case mutations.CREATE_GAME : 
+                    return [...games, {
+                            id: action.gameId,
+                            name: action.name,
+                            owner: action.userId
+                    }];
                 case mutations.LOAD_STATE:
                     return action.state.games;
             }

@@ -25,6 +25,22 @@ export function* betMatchSaga(){
     }
 }
 
+export function* createGameSaga(){
+    while (true) {
+        const args = _.pick(yield take(mutations.REQUEST_CREATE_GAME), ['userId', 'name']);
+        const gameId = uuid();
+        yield put(mutations.createGame(gameId, args.userId, args.name));
+        yield axios.post(url + `/games`, {
+            game: {
+                id: gameId,
+                owner: args.userId,
+                name: args.name,
+                users: [args.userId]
+            }
+        });
+    }
+}
+
 export function* userAuthenticationSaga(){
     while(true){
         const { username, password } = yield take(mutations.REQUEST_AUTHENTICATE_USER);

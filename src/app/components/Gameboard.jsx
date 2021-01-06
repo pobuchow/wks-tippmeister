@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { ConnectedCreateGameForm } from './CreateGameForm';
 
 export const Gameboard = ({ games }) => (
   <div>
@@ -12,6 +13,7 @@ export const Gameboard = ({ games }) => (
         </Link>
       </div>
     ))}
+    <ConnectedCreateGameForm />
   </div>
 );
 

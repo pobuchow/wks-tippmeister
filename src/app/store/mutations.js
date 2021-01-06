@@ -1,6 +1,9 @@
 export const REQUEST_BET_MATCH = `REQUEST_BET_MATCH`;
 export const BET_MATCH = `BET_MATCH`;
 
+export const REQUEST_CREATE_GAME = `REQUEST_CREATE_GAME`;
+export const CREATE_GAME = `CREATE_GAME`;
+
 export const REQUEST_AUTHENTICATE_USER = `REQUEST_AUTHENTICATE_USER`;
 export const PROCESSING_AUTHENTICATE_USER = `PROCESSING_AUTHENTICATE_USER`;
 export const AUTHENTICATING = `AUTHENTICATING`;
@@ -26,6 +29,19 @@ export const betMatch = (betId, gameId, matchId, ownerId, goalsHomeTeam, goalsAw
     ownerId, 
     goalsHomeTeam, 
     goalsAwayTeam
+});
+
+export const requestCreateGame = (userId, name) => ({
+    type:REQUEST_CREATE_GAME,
+    userId,
+    name
+});
+
+export const createGame = (gameId, userId, name) => ({
+    type: CREATE_GAME,
+    gameId,
+    userId,
+    name
 });
 
 export const requestAuthenticateUser = (username, password)=>({
