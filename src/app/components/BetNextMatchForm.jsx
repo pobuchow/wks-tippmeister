@@ -37,7 +37,7 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
   );
 };
 
-function mapState2Props(state, ownProps) {
+function mapStateToProps(state, ownProps) {
   return {
     userId: state.session.id,
     match: ownProps.match,
@@ -54,6 +54,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export const ConnectedBetNextMatchForm = connect(
-  mapState2Props,
+  mapStateToProps,
   mapDispatchToProps
 )(BetNextMatchForm);

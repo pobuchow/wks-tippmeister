@@ -29,14 +29,29 @@ export function* createGameSaga(){
     while (true) {
         const args = _.pick(yield take(mutations.REQUEST_CREATE_GAME), ['userId', 'name']);
         const gameId = uuid();
-        yield put(mutations.createGame(gameId, args.userId, args.name));
+        let users = [args.userId];
+        let game = {
+            id: gameId,
+            name: args.name,
+            users: users,
+            matches: [],
+            scores: [],
+            hosts: [args.userId],
+            isFinished: false
+        }
+        yield put(mutations.createGame(game));
         yield axios.post(url + `/games`, {
-            game: {
-                id: gameId,
-                owner: args.userId,
-                name: args.name,
-                users: [args.userId]
-            }
+            game: game
+        });
+    }
+}
+
+export function* updateGame(){
+    while (true) {
+        const args = _.pick(yield take(mutations.REQUEST_UPDATE_GAME), ['game']);
+        yield put(mutations.updateGame(args.game));
+        yield axios.post(url + `/games`, {
+            game: args.game
         });
     }
 }

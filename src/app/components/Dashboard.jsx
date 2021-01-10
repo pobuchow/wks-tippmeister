@@ -4,10 +4,12 @@ import _ from "lodash";
 import { ConnectedNextMatch } from './NextMatch';
 import { ConnectedLastMatch } from './LastMatch';
 import { ConnectedScoreboard } from './Scoreboard';
+import { ConnectedAddGameUserForm } from './AddGameUserForm';
 
 export const Dashboard = ({ game }) => (
   <div>
     <h2>dashboard</h2>
+    <ConnectedAddGameUserForm game={game} />
     <ConnectedLastMatch game={game.id} />
     <ConnectedNextMatch game={game.id} />
     <ConnectedScoreboard 
