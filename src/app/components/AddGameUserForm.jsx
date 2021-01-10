@@ -21,29 +21,32 @@ export const AddGameUserForm = ({ game, updateGame }) => {
   return (
     <div>
       <h3>add new player</h3>
-      <form>
-        <label>
-          name:
+      {_.isEmpty(users) ?
+        <h4>No players available</h4>
+        :
+        <form>
+          <label>
+            name:
           <select value={user.id} onChange={(e) => setUser(e.target.value)}>
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          type="button"
-          onClick={() => {
-            game.users.push(user);
-            let availableUsers = _.filter(users, function(u) { return u.id !== user; });
-            setUsers(availableUsers);
-            setUser(availableUsers[0].id);
-            updateGame(game);
-          }}>
-          add!
+              {users.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            onClick={() => {
+              game.users.push(user);
+              let availableUsers = _.filter(users, function (u) { return u.id !== user; });
+              setUsers(availableUsers);
+              setUser(availableUsers[0].id);
+              updateGame(game);
+            }}>
+            add!
         </button>
-      </form>
+        </form>}
     </div>
   );
 };
