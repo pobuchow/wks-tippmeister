@@ -15,7 +15,7 @@ export const AddGameUserForm = ({ game, updateGame }) => {
       return !_.includes(game.users, user.id);
     });
     setUsers(availableUsers);
-    setUser(availableUsers[0].id);
+    setUser(_.isEmpty(availableUsers) ? {} : availableUsers[0].id);
   }, []);
 
   return (
@@ -41,7 +41,7 @@ export const AddGameUserForm = ({ game, updateGame }) => {
               game.users.push(user);
               let availableUsers = _.filter(users, function (u) { return u.id !== user; });
               setUsers(availableUsers);
-              setUser(availableUsers[0].id);
+              setUser(_.isEmpty(availableUsers) ? {} : availableUsers[0].id);
               updateGame(game);
             }}>
             add!

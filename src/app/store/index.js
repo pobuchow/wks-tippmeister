@@ -62,7 +62,7 @@ export const store = createStore(
             (game) => game.id == updatedGame.id
           );
           games[gameToUpdateIndex] = updatedGame;
-          return games;
+          return [ ...games ];
         case mutations.LOAD_STATE:
           return action.state.games;
       }

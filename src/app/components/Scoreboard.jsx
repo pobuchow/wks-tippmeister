@@ -7,9 +7,9 @@ export const Scoreboard = ({ scores, gameId }) => (
   <div>
     <h3>scoreboard</h3>
     {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
-      <div key={score.id}>
-        {score.user.name} {score.points}{" "}
-        <ConnectedNextBet gameId={gameId} userId={score.user.id} />
+      <div key={score.userId}>
+        {score.name} {score.points}{" "}
+        <ConnectedNextBet gameId={gameId} userId={score.userId} />
       </div>
     ))}
   </div>
@@ -23,19 +23,17 @@ function mapState2Props(state, ownProps) {
     return _.includes(ownProps.scores, score.id);
   });
 
-  let scoresResult = _.map(scores, function (score) {
+  let scoresResult = _.map(users, function (user) {
+    let score = _.find(scores, ["user", user.id]);
     return {
-      id: score.id,
-      user: {
-        id: score.user,
-        name: _.find(users, ["id", score.user]).name,
-      },
-      points: score.points,
+      userId: user.id,
+      name: user.name,
+      points: score ? score.points : 0
     };
   });
   return {
     gameId: ownProps.game,
-    scores: scoresResult,
+    scores: scoresResult
   };
 }
 
