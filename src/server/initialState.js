@@ -92,7 +92,6 @@ export const initialState = {
     },{
         id: '2',
         event_datetime: new Date(2020, 12-1, 11, 18, 0, 0, 0),
-        event_time: '18:00',
         homeTeam: 'Zagłębie Lubin',
         awayTeam: 'Śląsk Wrocław',
         goalsHomeTeam: 2,
@@ -100,7 +99,6 @@ export const initialState = {
     },{
         id: '3',
         event_datetime: new Date(2021, 2-1, 1, 18, 0, 0, 0),
-        event_time: '18:00',
         homeTeam: 'Stal Mielec',
         awayTeam: 'Śląsk Wrocław',
         goalsHomeTeam: null,
@@ -108,7 +106,6 @@ export const initialState = {
     },{
         id: '4',
         event_datetime: new Date(2021, 2-1, 6, 18, 0, 0, 0),
-        event_time: '18:00',
         homeTeam: 'Piast Gliwice',
         awayTeam: 'Śląsk Wrocław',
         goalsHomeTeam: null,

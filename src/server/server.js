@@ -54,6 +54,18 @@ app.post("/games", async (request, response) => {
   response.status(200).send();
 });
 
+app.post("/matches", async (request, response) => {
+  let match = request.body.match;
+  await createMatch(match);
+  response.status(200).send();
+});
+
+export const createMatch = async (match) => {
+  let db = await connectDB();
+  let collection = db.collection(`matches`);
+  await collection.insertOne(match);
+};
+
 async function getUsers() {
   let db = await connectDB();
   let collection = db.collection(`users`);

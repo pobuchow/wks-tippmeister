@@ -43,26 +43,28 @@ export const store = createStore(
     },
     matches(matches = [], action) {
       switch (action.type) {
+        case mutations.ADD_MATCH:
+          return [...matches, action.match];
         case mutations.LOAD_STATE:
-          let matches = action.state.matches;
-          matches.forEach((match) => {
+          let load = action.state.matches;
+          load.forEach((match) => {
             match.event_datetime = new Date(match.event_datetime);
           });
-          return matches;
+          return load;
       }
       return matches;
     },
     games(games = [], action) {
       switch (action.type) {
         case mutations.CREATE_GAME:
-          return [ ...games, action.game ];
+          return [...games, action.game];
         case mutations.UPDATE_GAME:
           const updatedGame = action.game;
           let gameToUpdateIndex = games.findIndex(
             (game) => game.id == updatedGame.id
           );
           games[gameToUpdateIndex] = updatedGame;
-          return [ ...games ];
+          return [...games];
         case mutations.LOAD_STATE:
           return action.state.games;
       }
