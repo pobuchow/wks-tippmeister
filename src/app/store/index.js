@@ -45,6 +45,13 @@ export const store = createStore(
       switch (action.type) {
         case mutations.ADD_MATCH:
           return [...matches, action.match];
+        case mutations.UPDATE_MATCH:
+          const updatedMatch = action.match;
+          let matchToUpdateIndex = matches.findIndex(
+            (match) => match.id == updatedMatch.id
+          );
+          matches[matchToUpdateIndex] = updatedMatch;
+          return [...matches];
         case mutations.LOAD_STATE:
           let load = action.state.matches;
           load.forEach((match) => {

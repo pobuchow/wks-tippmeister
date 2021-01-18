@@ -4,6 +4,9 @@ export const BET_MATCH = `BET_MATCH`;
 export const REQUEST_ADD_NEW_MATCH_TO_GAME = `REQUEST_ADD_NEW_MATCH_TO_GAME`;
 export const ADD_MATCH = `ADD_MATCH`;
 
+export const REQUEST_SET_MATCH_RESULT = `REQUEST_SET_MATCH_RESULT`;
+export const UPDATE_MATCH = `UPDATE_MATCH`;
+
 export const REQUEST_CREATE_GAME = `REQUEST_CREATE_GAME`;
 export const CREATE_GAME = `CREATE_GAME`;
 
@@ -60,6 +63,18 @@ export const createMatch = (id, event_datetime, event_time, homeTeam, awayTeam, 
     awayTeam, 
     goalsHomeTeam, 
     goalsAwayTeam
+});
+
+export const requestSetMatchResult = (match, goalsHomeTeam, goalsAwayTeam) => ({
+    type:REQUEST_SET_MATCH_RESULT,
+    match, 
+    goalsHomeTeam, 
+    goalsAwayTeam
+});
+
+export const updateMatch = (match) => ({
+    type:UPDATE_MATCH,
+    match
 });
 
 

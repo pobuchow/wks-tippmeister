@@ -40,6 +40,23 @@ export function* betMatchSaga() {
   }
 }
 
+export function* setMatchResult() {
+  while (true) {
+    const args = _.pick(yield take(mutations.REQUEST_SET_MATCH_RESULT), [
+      "match",
+      "goalsHomeTeam",
+      "goalsAwayTeam",
+    ]);
+    let match = args.match;
+    match.goalsHomeTeam = args.goalsHomeTeam;
+    match.goalsAwayTeam = args.goalsAwayTeam;
+    yield put(mutations.updateMatch(match));
+    yield axios.post(url + `/matches`, {
+      match: match,
+    });
+  }
+}
+
 export function* createGameSaga() {
   while (true) {
     const args = _.pick(yield take(mutations.REQUEST_CREATE_GAME), [

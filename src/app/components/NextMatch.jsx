@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { matchService } from "../services/MatchService";
 import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
+import { ConnectedSetMatchResultForm } from "./SetMatchResultForm";
 
 export const NextMatch = ({ match, gameId }) =>
   match ? (
@@ -16,6 +17,7 @@ export const NextMatch = ({ match, gameId }) =>
         minute: '2-digit'
       })}{" "}
       {match.homeTeam} - {match.awayTeam}
+      <ConnectedSetMatchResultForm match={match} />
       <ConnectedBetNextMatchForm match={match} gameId={gameId} />
     </div>
   ) : null;
