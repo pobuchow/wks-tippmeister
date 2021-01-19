@@ -4,6 +4,7 @@ const uuid = require("uuid").v4;
 import * as mutations from "./mutations/mutations";
 import * as matchMutations from "./mutations/matchMutations";
 import * as gameMutations from "./mutations/gameMutations";
+import * as betMutations from "./mutations/betMutations";
 import _ from "lodash";
 import { history } from "./history";
 
@@ -11,7 +12,7 @@ const url = "http://localhost:8080";
 
 export function* betMatchSaga() {
   while (true) {
-    const args = _.pick(yield take(mutations.REQUEST_BET_MATCH), [
+    const args = _.pick(yield take(betMutations.REQUEST_BET_MATCH), [
       "userId",
       "gameId",
       "matchId",
@@ -20,7 +21,7 @@ export function* betMatchSaga() {
     ]);
     const betId = uuid();
     yield put(
-      mutations.betMatch(
+      betMutations.betMatch(
         betId,
         args.gameId,
         args.matchId,

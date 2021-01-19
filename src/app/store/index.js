@@ -6,6 +6,7 @@ import * as sagas from "./sagas";
 import * as mutations from "./mutations/mutations";
 import * as matchMutations from "./mutations/matchMutations";
 import * as gameMutations from "./mutations/gameMutations";
+import * as betMutations from "./mutations/betMutations";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,7 +27,7 @@ export const store = createStore(
     },
     bets(bets = [], action) {
       switch (action.type) {
-        case mutations.BET_MATCH:
+        case betMutations.BET_MATCH:
           return [
             ...bets,
             {
