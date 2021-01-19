@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import axios from "axios";
-import { requestUpdateGame } from "../store/mutations";
+import { requestUpdateGame } from "../store/mutations/mutations";
 
 export const AddGameUserForm = ({ game, updateGame }) => {
   const [users, setUsers] = useState([]);

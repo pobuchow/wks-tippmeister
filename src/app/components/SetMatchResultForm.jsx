@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { requestSetMatchResult } from "../store/mutations";
+import { requestSetMatchResult } from "../store/mutations/matchMutations";
 
 export const SetMatchResultForm = ({ requestSetMatchResult }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);

@@ -1,7 +1,8 @@
 import { take, put } from "redux-saga/effects";
 import axios from "axios";
 const uuid = require("uuid").v4;
-import * as mutations from "./mutations";
+import * as mutations from "./mutations/mutations";
+import * as matchMutations from "./mutations/matchMutations";
 import _ from "lodash";
 import { history } from "./history";
 
@@ -42,7 +43,7 @@ export function* betMatchSaga() {
 
 export function* setMatchResult() {
   while (true) {
-    const args = _.pick(yield take(mutations.REQUEST_SET_MATCH_RESULT), [
+    const args = _.pick(yield take(matchMutations.REQUEST_SET_MATCH_RESULT), [
       "match",
       "goalsHomeTeam",
       "goalsAwayTeam",
@@ -50,7 +51,7 @@ export function* setMatchResult() {
     let match = args.match;
     match.goalsHomeTeam = args.goalsHomeTeam;
     match.goalsAwayTeam = args.goalsAwayTeam;
-    yield put(mutations.updateMatch(match));
+    yield put(matchMutations.updateMatch(match));
     yield axios.post(url + `/matches`, {
       match: match,
     });
@@ -93,7 +94,7 @@ export function* updateGame() {
 
 export function* addNewMatchToGame() {
   while (true) {
-    const args = _.pick(yield take(mutations.REQUEST_ADD_NEW_MATCH_TO_GAME), [
+    const args = _.pick(yield take(matchMutations.REQUEST_ADD_NEW_MATCH_TO_GAME), [
       "game",
       "homeTeam",
       "awayTeam",
@@ -112,7 +113,7 @@ export function* addNewMatchToGame() {
         goalsHomeTeam: null,
         goalsAwayTeam: null
     };
-    yield put(mutations.addMatch(match));
+    yield put(matchMutations.addMatch(match));
     yield axios.post(url + `/matches`, {
         match: match,
     });

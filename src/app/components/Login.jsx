@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as mutations from '../store/mutations';
+import * as mutations from '../store/mutations/mutations';
 
 const Login = ({authenticateUser, authenticated}) => {
   return <div>

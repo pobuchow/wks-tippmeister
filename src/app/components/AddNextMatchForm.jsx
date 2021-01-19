@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import moment from "moment";
-import { requestAddNewMatchToGame } from "../store/mutations";
+import { requestAddNewMatchToGame } from "../store/mutations/matchMutations";
 
 export const AddNextMatchForm = ({ addNewMatchToGame }) => {
   const [homeTeam, setHomeTeam] = useState("");

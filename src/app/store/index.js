@@ -3,7 +3,8 @@ import { initialState } from "../../server/initialState";
 import { createLogger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import * as sagas from "./sagas";
-import * as mutations from "./mutations";
+import * as mutations from "./mutations/mutations";
+import * as matchMutations from "./mutations/matchMutations";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -43,9 +44,9 @@ export const store = createStore(
     },
     matches(matches = [], action) {
       switch (action.type) {
-        case mutations.ADD_MATCH:
+        case matchMutations.ADD_MATCH:
           return [...matches, action.match];
-        case mutations.UPDATE_MATCH:
+        case matchMutations.UPDATE_MATCH:
           const updatedMatch = action.match;
           let matchToUpdateIndex = matches.findIndex(
             (match) => match.id == updatedMatch.id
