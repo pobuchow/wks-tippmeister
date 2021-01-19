@@ -5,6 +5,7 @@ import createSagaMiddleware from "redux-saga";
 import * as sagas from "./sagas";
 import * as mutations from "./mutations/mutations";
 import * as matchMutations from "./mutations/matchMutations";
+import * as gameMutations from "./mutations/gameMutations";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -64,9 +65,9 @@ export const store = createStore(
     },
     games(games = [], action) {
       switch (action.type) {
-        case mutations.CREATE_GAME:
+        case gameMutations.CREATE_GAME:
           return [...games, action.game];
-        case mutations.UPDATE_GAME:
+        case gameMutations.UPDATE_GAME:
           const updatedGame = action.game;
           let gameToUpdateIndex = games.findIndex(
             (game) => game.id == updatedGame.id

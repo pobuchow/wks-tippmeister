@@ -3,6 +3,7 @@ import axios from "axios";
 const uuid = require("uuid").v4;
 import * as mutations from "./mutations/mutations";
 import * as matchMutations from "./mutations/matchMutations";
+import * as gameMutations from "./mutations/gameMutations";
 import _ from "lodash";
 import { history } from "./history";
 
@@ -60,7 +61,7 @@ export function* setMatchResult() {
 
 export function* createGameSaga() {
   while (true) {
-    const args = _.pick(yield take(mutations.REQUEST_CREATE_GAME), [
+    const args = _.pick(yield take(gameMutations.REQUEST_CREATE_GAME), [
       "userId",
       "name",
     ]);
@@ -75,7 +76,7 @@ export function* createGameSaga() {
       hosts: [args.userId],
       isFinished: false,
     };
-    yield put(mutations.createGame(game));
+    yield put(gameMutations.createGame(game));
     yield axios.post(url + `/games`, {
       game: game,
     });
@@ -84,8 +85,8 @@ export function* createGameSaga() {
 
 export function* updateGame() {
   while (true) {
-    const args = _.pick(yield take(mutations.REQUEST_UPDATE_GAME), ["game"]);
-    yield put(mutations.updateGame(args.game));
+    const args = _.pick(yield take(gameMutations.REQUEST_UPDATE_GAME), ["game"]);
+    yield put(gameMutations.updateGame(args.game));
     yield axios.post(url + `/games`, {
       game: args.game,
     });
@@ -119,7 +120,7 @@ export function* addNewMatchToGame() {
     });
     let game = args.game;
     game.matches.push(matchId);
-    yield put(mutations.updateGame(game));
+    yield put(gameMutations.updateGame(game));
     yield axios.post(url + `/games`, {
       game: game,
     });
