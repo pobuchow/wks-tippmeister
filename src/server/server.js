@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { connectDB } from "./connectDB";
 import { authenticationRoute } from "./authenticate";
 import { betsRoute } from "./bets";
 import { gamesRoute } from "./games";
 import { matchesRoute } from "./matches";
+import { usersRoute } from "./users";
 
 let port = 8080;
 let app = express();
@@ -22,15 +22,4 @@ gamesRoute(app);
 
 matchesRoute(app);
 
-async function getUsers() {
-  let db = await connectDB();
-  let collection = db.collection(`users`);
-  return await collection.find({}).toArray();
-}
-
-app.get("/users", async (request, response) => {
-  let users = await getUsers();
-  response.status(200).send({
-    users: users,
-  });
-});
+usersRoute(app);

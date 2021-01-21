@@ -22,12 +22,6 @@ const upsertMatch = async (match) => {
   }
 };
 
-const createMatch = async (match) => {
-  let db = await connectDB();
-  let collection = db.collection(`matches`);
-  await collection.insertOne(match);
-};
-
 export const matchesRoute = (app) => {
   app.post("/matches", async (request, response) => {
     let match = request.body.match;
