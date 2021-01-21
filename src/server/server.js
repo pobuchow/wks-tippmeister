@@ -3,7 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { connectDB } from "./connectDB";
 import { authenticationRoute } from "./authenticate";
-import { ObjectId } from 'mongodb';
+import { betsRoute } from "./bets";
 
 let port = 8080;
 let app = express();
@@ -14,17 +14,7 @@ app.use(cors(), bodyParser.urlencoded({ extended: true }), bodyParser.json());
 
 authenticationRoute(app);
 
-export const addNewBet = async (bet) => {
-  let db = await connectDB();
-  let collection = db.collection(`bets`);
-  await collection.insertOne(bet);
-};
-
-app.post("/bets", async (request, response) => {
-  let bet = request.body.bet;
-  await addNewBet(bet);
-  response.status(200).send();
-});
+betsRoute(app);
 
 export const upsertGame = async (game) => {
   let db = await connectDB();
