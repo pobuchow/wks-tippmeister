@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { requestCreateGame } from "../store/mutations/gameMutations";
+import { requestCreateGame } from "../../store/mutations/gameMutations";
 
 export const CreateGameForm = ({ userId, createGame }) => {
   const [name, setName] = useState("");

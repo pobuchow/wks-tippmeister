@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { requestBetMatch } from "../store/mutations/betMutations";
+import { requestBetMatch } from "../../../../store/mutations/betMutations";
 
 export const BetNextMatchForm = ({ match, userId, betMatch }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);

@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { ConnectedNextMatch } from "./NextMatch";
-import { ConnectedLastMatch } from "./LastMatch";
-import { ConnectedScoreboard } from "./Scoreboard";
+import { ConnectedNextMatch } from "./matches/next/NextMatch";
+import { ConnectedLastMatch } from "./matches/last/LastMatch";
+import { ConnectedScoreboard } from "./scoreboard/Scoreboard";
 import { ConnectedAddGameUserForm } from "./AddGameUserForm";
 import { ConnectedAddNextMatchForm } from "./AddNextMatchForm";
 

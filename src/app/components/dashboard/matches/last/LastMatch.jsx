@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import _, { last } from "lodash";
-import { matchService } from "../services/MatchService";
+import _ from "lodash";
+import { matchService } from "../../../../services/MatchService";
 
 export const LastMatch = ({ match }) =>
   match ? (

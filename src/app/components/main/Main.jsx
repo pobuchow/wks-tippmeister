@@ -1,12 +1,12 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../store";
-import { ConnectedDashboard } from "./Dashboard";
-import { ConnectedLogin } from "./Login";
+import { store } from "../../store";
+import { ConnectedDashboard } from "../dashboard/Dashboard";
+import { ConnectedLogin } from "../login/Login";
 import { Router, Route, Switch } from "react-router-dom";
 import { Redirect } from "react-router";
-import { history } from "../store/history";
-import { ConnectedGameboard } from "./Gameboard";
+import { history } from "../../store/history";
+import { ConnectedGameboard } from "../gameboard/Gameboard";
 
 const RouteGuard = (Component) => ({ match }) => {
   if (!store.getState().session.authenticated) {
