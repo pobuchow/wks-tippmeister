@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { authenticationRoute } from "./authenticate";
-import { betsRoute } from "./bets";
-import { gamesRoute } from "./games";
-import { matchesRoute } from "./matches";
-import { usersRoute } from "./users";
+import { authenticationRoute } from "./routes/authenticate";
+import { betsRoute } from "./routes/bets";
+import { gamesRoute } from "./routes/games";
+import { matchesRoute } from "./routes/matches";
+import { usersRoute } from "./routes/users";
 
 let port = 8080;
 let app = express();

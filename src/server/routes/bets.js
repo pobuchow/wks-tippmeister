@@ -1,4 +1,4 @@
-import { connectDB } from "./connectDB";
+import { connectDB } from "../db/connectDB";
 
 const addNewBet = async (bet) => {
   let db = await connectDB();

@@ -7,7 +7,7 @@
     "start": "webpack",
     "dev": "webpack serve --port 3000 --mode=development --open Chrome.exe",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init-db": "babel-node src/server/initDB",
+    "init-db": "babel-node src/server/db/initDB",
     "server": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\" "
