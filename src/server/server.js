@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import { connectDB } from "./connectDB";
 import { authenticationRoute } from "./authenticate";
 import { betsRoute } from "./bets";
+import { gamesRoute } from "./games";
 
 let port = 8080;
 let app = express();
@@ -16,26 +17,7 @@ authenticationRoute(app);
 
 betsRoute(app);
 
-export const upsertGame = async (game) => {
-  let db = await connectDB();
-  let collection = db.collection(`games`);
-  let gameToUpdate = await collection.findOne({ id: game.id });
-  if(gameToUpdate){
-    await collection.updateOne(
-      { id: game.id },
-      { $set: {
-        name: game.name,
-        users: game.users,
-        matches: game.matches,
-        scores: game.scores,
-        hosts: game.hosts,
-        isFinished: game.isFinished
-      }}
-    );
-  } else {
-    await collection.insertOne(game);
-  }
-};
+gamesRoute(app);
 
 export const upsertMatch = async (match) => {
   let db = await connectDB();
@@ -56,12 +38,6 @@ export const upsertMatch = async (match) => {
     await collection.insertOne(match);
   }
 };
-
-app.post("/games", async (request, response) => {
-  let game = request.body.game;
-  await upsertGame(game);
-  response.status(200).send();
-});
 
 app.post("/matches", async (request, response) => {
   let match = request.body.match;
