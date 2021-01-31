@@ -5,7 +5,7 @@ import { matchService } from "../../../../services/MatchService";
 import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
 import { ConnectedSetMatchResultForm } from "./SetMatchResultForm";
 
-export const NextMatch = ({ match, gameId }) =>
+export const NextMatch = ({ userId, game, match }) =>
   match ? (
     <div>
       <h3>next match</h3>
@@ -17,8 +17,8 @@ export const NextMatch = ({ match, gameId }) =>
         minute: '2-digit'
       })}{" "}
       {match.homeTeam} - {match.awayTeam}
-      <ConnectedSetMatchResultForm match={match} />
-      <ConnectedBetNextMatchForm match={match} gameId={gameId} />
+      { _.includes(game.hosts, userId) && <ConnectedSetMatchResultForm match={match} /> }
+      <ConnectedBetNextMatchForm match={match} gameId={game.id}/>
     </div>
   ) : null;
 
@@ -28,7 +28,8 @@ function mapState2Props(state, ownProps) {
     return _.includes(game.matches, match.id);
   });
   return {
-    gameId: game.id,
+    userId: state.session.id,
+    game: game,
     match: matchService.getNextMatch(matches),
   };
 }
