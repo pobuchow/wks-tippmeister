@@ -27,10 +27,11 @@ function mapState2Props(state, ownProps) {
   const matches = _.filter(state.matches, function (match) {
     return _.includes(game.matches, match.id);
   });
+  let match = game.isFinished ? null : matchService.getNextMatch(matches)
   return {
     userId: state.session.id,
     game: game,
-    match: matchService.getNextMatch(matches),
+    match: match
   };
 }
 
