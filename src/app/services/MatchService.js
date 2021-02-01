@@ -1,18 +1,23 @@
 class MatchService {
     getLastMatch(matches) {
-        const matchesInPast = _.filter(matches, function (match) {
-            return match.event_datetime < new Date()
+        const matchesWithoutResult = _.filter(matches, function (match) {
+            return match.goalsHomeTeam && match.goalsAwayTeam;
         });
-        const matchesInPastSortedDesc = _.orderBy(matchesInPast, ['event_datetime'], ['desc']);
-        return _.head(matchesInPastSortedDesc);
+        const matchesWithoutResultSortedDesc = _.orderBy(matchesWithoutResult, ['event_datetime'], ['desc']);
+        return _.head(matchesWithoutResultSortedDesc);
     }
  
     getNextMatch(matches) {
-        const matchesInFuture = _.filter(matches, function (match) {
-            return match.event_datetime > new Date()
+        const matchesWithResult = _.reject(matches, function (match) {
+            return match.goalsHomeTeam && match.goalsAwayTeam;
         });
-        const matchesInFutureSortedAsc = _.orderBy(matchesInFuture, ['event_datetime'], ['asc']);
-        return _.head(matchesInFutureSortedAsc);
+        const matchesWithResultSortedAsc = _.orderBy(matchesWithResult, ['event_datetime'], ['asc']);
+        return _.head(matchesWithResultSortedAsc);
+    }
+
+    isMatchOver(match){
+        let datetimeAfterMatch = new Date(match.event_datetime.getTime() + (90*60*1000));
+        return datetimeAfterMatch < Date.now()
     }
 }
  

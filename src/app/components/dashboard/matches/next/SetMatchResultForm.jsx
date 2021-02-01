@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { matchService } from "../../../../services/MatchService";
 import { requestSetMatchResult } from "../../../../store/mutations/matchMutations";
 
-export const SetMatchResultForm = ({ requestSetMatchResult }) => {
+export const SetMatchResultForm = ({ match, requestSetMatchResult }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);
   const [goalsAwayTeam, setGoalsAwayTeam] = useState(0);
 
@@ -28,6 +29,7 @@ export const SetMatchResultForm = ({ requestSetMatchResult }) => {
         </label>
         <button
           type="button"
+          disabled={!matchService.isMatchOver(match)}
           onClick={() => requestSetMatchResult(goalsHomeTeam, goalsAwayTeam)}
         >
         update match!
@@ -45,4 +47,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export const ConnectedSetMatchResultForm = connect(null, mapDispatchToProps)(SetMatchResultForm);
+function mapStateToProps(state, ownProps) {
+  return {
+    match: ownProps.match
+  };
+}
+
+export const ConnectedSetMatchResultForm = connect(mapStateToProps, mapDispatchToProps)(SetMatchResultForm);
