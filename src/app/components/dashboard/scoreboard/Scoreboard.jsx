@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { ConnectedNextBet } from "./NextBet";
+import { scoreService } from "../../../services/ScoreService";
 
 export const Scoreboard = ({ scores, gameId }) => (
   <div>
@@ -19,16 +20,16 @@ function mapState2Props(state, ownProps) {
   let users = _.filter(state.users, function (user) {
     return _.includes(ownProps.users, user.id);
   });
-  let scores = _.filter(state.scores, function (score) {
-    return _.includes(ownProps.scores, score.id);
+  let matches = _.filter(state.matches, function (match) {
+    return _.includes(ownProps.matches, match.id);
   });
-
   let scoresResult = _.map(users, function (user) {
-    let score = _.find(scores, ["user", user.id]);
     return {
       userId: user.id,
       name: user.name,
-      points: score ? score.points : 0
+      points: scoreService.calcPoints(
+        matches, 
+        _.filter(state.bets, { 'game': ownProps.game, 'owner': user.id }))
     };
   });
   return {

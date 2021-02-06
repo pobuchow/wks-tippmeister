@@ -16,7 +16,7 @@ export const Dashboard = ({ userId, game }) => (
     <ConnectedNextMatch game={game.id} />
     <ConnectedScoreboard
       users={game.users}
-      scores={game.scores}
+      matches={game.matches}
       game={game.id}
     />
   </div>

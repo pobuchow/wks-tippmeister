@@ -73,7 +73,6 @@ export function* createGameSaga() {
       name: args.name,
       users: users,
       matches: [],
-      scores: [],
       hosts: [args.userId],
       isFinished: false,
     };

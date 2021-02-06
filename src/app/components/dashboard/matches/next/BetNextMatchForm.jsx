@@ -15,7 +15,7 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
           <input
             type="number"
             value={goalsHomeTeam}
-            onChange={(e) => setGoalsHomeTeam(e.target.value)}
+            onChange={(e) => setGoalsHomeTeam(_.parseInt(e.target.value))}
           />
         </label>
         <label>
@@ -23,7 +23,7 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
           <input
             type="number"
             value={goalsAwayTeam}
-            onChange={(e) => setGoalsAwayTeam(e.target.value)}
+            onChange={(e) => setGoalsAwayTeam(_.parseInt(e.target.value))}
           />
         </label>
         <button

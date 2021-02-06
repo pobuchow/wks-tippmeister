@@ -86,14 +86,7 @@ export const store = createStore(
           return action.state.users;
       }
       return users;
-    },
-    scores(scores = [], action) {
-      switch (action.type) {
-        case mutations.LOAD_STATE:
-          return action.state.scores;
-      }
-      return scores;
-    },
+    }
   }),
   applyMiddleware(createLogger(), sagaMiddleware)
 );

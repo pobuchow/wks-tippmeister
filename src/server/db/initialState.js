@@ -12,9 +12,6 @@ export const initialState = {
         matches: [
             '5', '6', '7', '8'
         ],
-        scores: [
-            '5', '6', '7', '8'
-        ],
         hosts: ['2'],
         isFinished: true
     },{
@@ -26,44 +23,8 @@ export const initialState = {
         matches: [
             '1', '2', '3', '4'
         ],
-        scores: [
-            '1', '2', '3', '4'
-        ],
         hosts: ['1'],
         isFinished: false
-    }],
-    scores: [{
-        id: '1',
-        user: '1',
-        points: 3
-    },{
-        id: '2',
-        user: '2',
-        points: 2
-    },{
-        id: '3',
-        user: '3',
-        points: 2
-    },{
-        id: '4',
-        user: '4',
-        points: 7
-    },{
-        id: '5',
-        user: '1',
-        points: 4
-    },{
-        id: '6',
-        user: '2',
-        points: 6
-    },{
-        id: '7',
-        user: '3',
-        points: 3
-    },{
-        id: '8',
-        user: '4',
-        points: 5
     }],
     users: [{
         id: '1',

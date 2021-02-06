@@ -12,7 +12,6 @@ const upsertGame = async (game) => {
           name: game.name,
           users: game.users,
           matches: game.matches,
-          scores: game.scores,
           hosts: game.hosts,
           isFinished: game.isFinished,
         },
