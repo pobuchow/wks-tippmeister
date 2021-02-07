@@ -15,16 +15,20 @@ export const SetMatchResultForm = ({ match, requestSetMatchResult }) => {
           home team goals:
           <input
             type="number"
+            min={matchService.getGoalMinValue()}
+            max={matchService.getGoalMaxValue()}
             value={goalsHomeTeam}
-            onChange={(e) => setGoalsHomeTeam(_.parseInt(e.target.value))}
+            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsHomeTeam)}
           />
         </label>
         <label>
           away team goals:
           <input
             type="number"
+            min={matchService.getGoalMinValue()}
+            max={matchService.getGoalMaxValue()}
             value={goalsAwayTeam}
-            onChange={(e) => setGoalsAwayTeam(_.parseInt(e.target.value))}
+            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsAwayTeam)}
           />
         </label>
         <button

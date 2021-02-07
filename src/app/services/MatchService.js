@@ -1,4 +1,8 @@
+const goalMinValue = 0;
+const goalMaxValue = 9;
+
 class MatchService {
+    
     getLastMatch(matches) {
         const matchesWithResult = _.filter(matches, function (match) {
             return match.goalsHomeTeam !==null && match.goalsAwayTeam !== null;
@@ -18,6 +22,21 @@ class MatchService {
     isMatchOver(match){
         let datetimeAfterMatch = new Date(match.event_datetime.getTime() + (90*60*1000));
         return datetimeAfterMatch < Date.now()
+    }
+
+    handleGoalInput(input, setter){
+        let goals = _.parseInt(input);
+        if(goals <= goalMaxValue && goals >= goalMinValue){
+            return setter(goals);
+        }
+    }
+
+    getGoalMinValue(){
+        return goalMinValue;
+    }
+
+    getGoalMaxValue(){
+        return goalMaxValue;
     }
 }
  

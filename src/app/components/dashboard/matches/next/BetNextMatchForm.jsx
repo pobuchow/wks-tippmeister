@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { matchService } from './../../../../services/MatchService';
 import { requestBetMatch } from "../../../../store/mutations/betMutations";
 
 export const BetNextMatchForm = ({ match, userId, betMatch }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);
   const [goalsAwayTeam, setGoalsAwayTeam] = useState(0);
-
+  
   return (
     <div>
       <form>
@@ -14,16 +15,20 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
           {match.homeTeam}
           <input
             type="number"
+            min={matchService.getGoalMinValue()}
+            max={matchService.getGoalMaxValue()}
             value={goalsHomeTeam}
-            onChange={(e) => setGoalsHomeTeam(_.parseInt(e.target.value))}
+            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsHomeTeam)}
           />
         </label>
         <label>
           {match.awayTeam}
           <input
             type="number"
+            min={matchService.getGoalMinValue()}
+            max={matchService.getGoalMaxValue()}
             value={goalsAwayTeam}
-            onChange={(e) => setGoalsAwayTeam(_.parseInt(e.target.value))}
+            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsAwayTeam)}
           />
         </label>
         <button
