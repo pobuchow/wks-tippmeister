@@ -12,33 +12,12 @@ const url = "http://localhost:8080";
 
 export function* betMatchSaga() {
   while (true) {
-    const args = _.pick(yield take(betMutations.REQUEST_BET_MATCH), [
-      "userId",
-      "gameId",
-      "matchId",
-      "goalsHomeTeam",
-      "goalsAwayTeam",
-    ]);
-    const betId = uuid();
+    const args = _.pick(yield take(betMutations.REQUEST_BET_MATCH), "bet");
     yield put(
-      betMutations.betMatch(
-        betId,
-        args.gameId,
-        args.matchId,
-        args.userId,
-        args.goalsHomeTeam,
-        args.goalsAwayTeam
-      )
+      betMutations.betMatch(args.bet)
     );
     yield axios.post(url + `/bets`, {
-      bet: {
-        id: betId,
-        match: args.matchId,
-        owner: args.userId,
-        goalsHomeTeam: args.goalsHomeTeam,
-        goalsAwayTeam: args.goalsAwayTeam,
-        game: args.gameId,
-      },
+      bet: args.bet
     });
   }
 }

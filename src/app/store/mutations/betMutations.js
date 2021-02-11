@@ -1,21 +1,12 @@
 export const REQUEST_BET_MATCH = `REQUEST_BET_MATCH`;
 export const BET_MATCH = `BET_MATCH`;
 
-export const requestBetMatch = (userId, gameId, matchId, goalsHomeTeam, goalsAwayTeam) => ({
+export const requestBetMatch = (bet) => ({
     type:REQUEST_BET_MATCH,
-    userId,
-    gameId,
-    matchId, 
-    goalsHomeTeam, 
-    goalsAwayTeam
+    bet
 });
 
-export const betMatch = (betId, gameId, matchId, ownerId, goalsHomeTeam, goalsAwayTeam) => ({
+export const betMatch = (bet) => ({
     type: BET_MATCH,
-    betId,
-    gameId,
-    matchId,
-    ownerId, 
-    goalsHomeTeam, 
-    goalsAwayTeam
+    bet
 });

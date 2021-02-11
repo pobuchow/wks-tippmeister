@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { matchService } from "../../../services/MatchService";
 
-export const NextBet = ({ bet }) => bet && bet.id ? (
+export const NextBet = ({ betId, goalsHomeTeam, goalsAwayTeam}) => betId ? (
   <div style={{display: 'inline-block'}}>
-    {bet ? 
-        <div key={bet.id}>
-            {bet.goalsHomeTeam} : {bet.goalsAwayTeam}
+    {betId ? 
+        <div key={betId}>
+            {goalsHomeTeam} : {goalsAwayTeam}
         </div> 
     : ""}
   </div>
@@ -26,9 +26,11 @@ function mapState2Props(state, ownProps) {
     return bet.game === game.id && bet.match === nextMatch.id;
   });
   let bet = _.find(nextBets, ["owner", ownProps.userId]);
-  return {
-    bet: bet
-  };
+  return bet ? {
+    betId: bet.id,
+    goalsHomeTeam: bet.goalsHomeTeam,
+    goalsAwayTeam: bet.goalsAwayTeam
+  } : null;
 }
 
 export const ConnectedNextBet = connect(mapState2Props)(NextBet);

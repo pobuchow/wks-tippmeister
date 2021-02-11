@@ -28,17 +28,16 @@ export const store = createStore(
     bets(bets = [], action) {
       switch (action.type) {
         case betMutations.BET_MATCH:
-          return [
-            ...bets,
-            {
-              id: action.betId,
-              match: action.matchId,
-              owner: action.ownerId,
-              game: action.gameId,
-              goalsHomeTeam: action.goalsHomeTeam,
-              goalsAwayTeam: action.goalsAwayTeam,
-            },
-          ];
+          const updatedBet = action.bet;
+          let betToUpdateIndex = bets.findIndex(
+            (bet) => bet.id == updatedBet.id
+          );
+          if(betToUpdateIndex === -1){
+            return [...bets, updatedBet]
+          }else{
+            bets[betToUpdateIndex] = updatedBet;
+            return [...bets];
+          }
         case mutations.LOAD_STATE:
           return action.state.bets;
       }

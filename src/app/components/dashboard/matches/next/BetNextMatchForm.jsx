@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
+const uuid = require("uuid").v4;
 import { matchService } from './../../../../services/MatchService';
 import { requestBetMatch } from "../../../../store/mutations/betMutations";
 
-export const BetNextMatchForm = ({ match, userId, betMatch }) => {
+export const BetNextMatchForm = ({ match, bet, betMatch }) => {
   const [goalsHomeTeam, setGoalsHomeTeam] = useState(0);
   const [goalsAwayTeam, setGoalsAwayTeam] = useState(0);
   
@@ -33,7 +34,7 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
         </label>
         <button
           type="button"
-          onClick={() => betMatch(userId, match.id, goalsHomeTeam, goalsAwayTeam)}
+          onClick={() => betMatch(bet, goalsHomeTeam, goalsAwayTeam)}
         >
           bet this match!
         </button>
@@ -43,17 +44,22 @@ export const BetNextMatchForm = ({ match, userId, betMatch }) => {
 };
 
 function mapStateToProps(state, ownProps) {
+  const userId = state.session.id;
+  const match = ownProps.match;
+  const betTemplate = { 'match': match.id, 'owner': userId, 'game': ownProps.gameId };
+  let bet = _.find(state.bets, betTemplate) || {...betTemplate, 'id' : uuid()};
   return {
-    userId: state.session.id,
+    bet: bet,
     match: ownProps.match,
   };
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const gameId = ownProps.gameId;
+const mapDispatchToProps = (dispatch) => {
   return {
-    betMatch(userId, matchId, goalsHomeTeam, goalsAwayTeam) {
-      dispatch(requestBetMatch(userId, gameId, matchId, goalsHomeTeam, goalsAwayTeam));
+    betMatch(bet, goalsHomeTeam, goalsAwayTeam) {
+      bet.goalsHomeTeam = goalsHomeTeam;
+      bet.goalsAwayTeam = goalsAwayTeam;
+      dispatch(requestBetMatch(bet));
     },
   };
 };
