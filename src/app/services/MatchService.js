@@ -24,6 +24,10 @@ class MatchService {
         return datetimeAfterMatch < Date.now()
     }
 
+    isMatchStarted(match){
+        return match.event_datetime < Date.now()
+    }
+
     handleGoalInput(input, setter){
         let goals = _.parseInt(input);
         if(goals <= goalMaxValue && goals >= goalMinValue){

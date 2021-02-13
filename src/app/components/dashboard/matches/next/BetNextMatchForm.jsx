@@ -34,6 +34,7 @@ export const BetNextMatchForm = ({ match, bet, betMatch }) => {
         </label>
         <button
           type="button"
+          disabled={matchService.isMatchStarted(match)}
           onClick={() => betMatch(bet, goalsHomeTeam, goalsAwayTeam)}
         >
           bet this match!
