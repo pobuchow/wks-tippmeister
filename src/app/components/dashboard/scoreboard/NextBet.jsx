@@ -30,7 +30,7 @@ function mapState2Props(state, ownProps) {
     betId: bet.id,
     goalsHomeTeam: bet.goalsHomeTeam,
     goalsAwayTeam: bet.goalsAwayTeam
-  } : null;
+  } : {};
 }
 
 export const ConnectedNextBet = connect(mapState2Props)(NextBet);
