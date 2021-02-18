@@ -5,7 +5,7 @@ import * as mutations from "../../store/mutations/mutations";
 const Login = ({ authenticateUser, authenticated }) => {
   return (
     <div className="page">
-      <div className="page-body">
+      <div className="page-body-md">
         <form onSubmit={authenticateUser}>
           <div className="page-body-label">Please login</div>
           <div className="mb-4">
@@ -27,7 +27,7 @@ const Login = ({ authenticateUser, authenticated }) => {
           </div>
           <div className="page-body-buttons">
             <button type="submit">Login</button>
-            <a href="#" onClick={() => { alert('not implemented yet'); }}>Forgot Password?</a>
+            <a className='link' href="#" onClick={() => { alert('not implemented yet'); }}>Forgot Password?</a>
           </div>
           {authenticated === mutations.NOT_AUTHENTICATED ? (
             <p className="text-white text-xs italic">Login incorrect</p>

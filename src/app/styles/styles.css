@@ -22,7 +22,7 @@
     @apply text-lg
       py-2;
   }
-  form{
+  form {
     @apply mb-6;
   }
   button {
@@ -50,30 +50,65 @@
             focus:outline-none
             w-full;
   }
-  a {
+  .link {
     @apply inline-block 
       align-baseline 
       font-normal 
       text-sm 
       text-white 
-      hover:text-green-300
+      hover:text-green-300;
   }
-  .page-body-label{
-    @apply text-green-300 text-2xl flex justify-center border-b-2 py-2 mb-4;
+  .page-body-label {
+    @apply text-green-300 
+      text-2xl 
+      flex 
+      justify-center 
+      border-b-2 
+      py-2 
+      mb-4;
   }
-  .page{
+  .page {
     @apply flex 
       items-center 
-      justify-center
+      justify-center;
   }
-  .page-body{
+  .page-body-md {
     @apply w-full 
-      max-w-md
+      max-w-md;
   }
-  .page-body-buttons{
+  .page-body-full {
+    @apply w-full;
+  }
+  .page-body-buttons {
     @apply flex 
       items-center 
       justify-between
-      mb-4
+      mb-4;
+  }
+  .gameboard {
+    @apply grid 
+      grid-cols-1 
+      sm:grid-cols-2 
+      md:grid-cols-3 
+      xl:grid-cols-4 
+      gap-4;
+  }
+  .gameboard-card {
+    @apply flex 
+      flex-col 
+      items-center 
+      justify-center
+      bg-green-300 
+      hover:bg-green-500 
+      focus:bg-green-500 
+      p-4 
+      shadow 
+      rounded-lg;
+  }
+  .gameboard-card-title {
+    @apply mt-4 
+      focus:outline-none
+      font-bold 
+      text-xl;
   }
 }
