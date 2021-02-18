@@ -4,10 +4,10 @@ import * as mutations from "../../store/mutations/mutations";
 
 const Login = ({ authenticateUser, authenticated }) => {
   return (
-    <div class="flex items-center justify-center">
-      <div class="w-full max-w-md">
+    <div class="page">
+      <div class="page-body">
         <form onSubmit={authenticateUser}>
-          <div class="login-label">Please login</div>
+          <div class="page-body-label">Please login</div>
           <div class="mb-4">
             <input
               type="text"
@@ -25,10 +25,13 @@ const Login = ({ authenticateUser, authenticated }) => {
               defaultValue="passa"
             />
           </div>
+          <div class="page-body-buttons">
+            <button type="submit">Login</button>
+            <a href="#">Forgot Password?</a>
+          </div>
           {authenticated === mutations.NOT_AUTHENTICATED ? (
-            <p>Login incorrect</p>
+            <p class="text-white text-xs italic">Login incorrect</p>
           ) : null}
-          <button type="submit">Login</button>
         </form>
       </div>
     </div>
