@@ -4,11 +4,11 @@ import * as mutations from "../../store/mutations/mutations";
 
 const Login = ({ authenticateUser, authenticated }) => {
   return (
-    <div class="page">
-      <div class="page-body">
+    <div className="page">
+      <div className="page-body">
         <form onSubmit={authenticateUser}>
-          <div class="page-body-label">Please login</div>
-          <div class="mb-4">
+          <div className="page-body-label">Please login</div>
+          <div className="mb-4">
             <input
               type="text"
               name="username"
@@ -17,7 +17,7 @@ const Login = ({ authenticateUser, authenticated }) => {
               defaultValue="User A"
             />
           </div>
-          <div class="mb-6">
+          <div className="mb-6">
             <input
               type="password"
               name="password"
@@ -25,18 +25,20 @@ const Login = ({ authenticateUser, authenticated }) => {
               defaultValue="passa"
             />
           </div>
-          <div class="page-body-buttons">
+          <div className="page-body-buttons">
             <button type="submit">Login</button>
-            <a href="#">Forgot Password?</a>
+            <a href="#" onClick={() => { alert('not implemented yet'); }}>Forgot Password?</a>
           </div>
           {authenticated === mutations.NOT_AUTHENTICATED ? (
-            <p class="text-white text-xs italic">Login incorrect</p>
+            <p className="text-white text-xs italic">Login incorrect</p>
           ) : null}
         </form>
       </div>
     </div>
   );
 };
+
+
 
 const mapStateToProps = ({ session }) => ({
   authenticated: session.authenticated,
