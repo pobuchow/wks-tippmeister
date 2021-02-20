@@ -11,7 +11,7 @@ export const Gameboard = ({ games }) => (
         {games.map((game) => (
           <Link key={game.id} to={`games/${game.id}/dashboard`}>
             <div className="gameboard-card">
-              <h2 class="gameboard-card-title">{game.name}</h2>
+              <h2 className="gameboard-card-title">{game.name}</h2>
             </div>
           </Link>
         ))}

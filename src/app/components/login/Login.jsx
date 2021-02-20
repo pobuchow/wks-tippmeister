@@ -38,8 +38,6 @@ const Login = ({ authenticateUser, authenticated }) => {
   );
 };
 
-
-
 const mapStateToProps = ({ session }) => ({
   authenticated: session.authenticated,
 });
