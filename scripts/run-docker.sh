@@ -1,1 +1,1 @@
-docker run -p 3001:3000 -d wks-tippmeister:dev
+docker run --rm -p 3001:3000 -p 8081:8080 -d wks-tippmeister:dev
