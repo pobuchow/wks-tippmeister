@@ -11,6 +11,10 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
+# Expose ui
 EXPOSE 3000
+
+# Expose API
+EXPOSE 8080
 
 CMD [ "npm", "run", "start-dev" ]

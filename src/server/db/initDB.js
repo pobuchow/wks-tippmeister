@@ -1,7 +1,7 @@
 import { initialState } from "./initialState";
 import { connectDB } from "./connectDB";
 
-async function initDB() {
+export async function initDB() {
   let db = await connectDB();
   for (let collectionName in initialState) {
     if (collectionName !== "session") {
