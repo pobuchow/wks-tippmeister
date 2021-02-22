@@ -15,15 +15,6 @@ app.listen(port, console.log("Server is running on port", port));
 
 app.use(cors(), bodyParser.urlencoded({ extended: true }), bodyParser.json());
 
-app.get("/init", async (request, response) => {
-    initDB();
-    response.status(200).send('db initialized');
-});
-
-app.get("/hello", async (request, response) => {
-    response.status(200).send('hello from wks-tippmeister');
-});
-
 authenticationRoute(app);
 
 betsRoute(app);
