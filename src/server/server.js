@@ -6,7 +6,6 @@ import { betsRoute } from "./routes/bets";
 import { gamesRoute } from "./routes/games";
 import { matchesRoute } from "./routes/matches";
 import { usersRoute } from "./routes/users";
-import { initDB } from "./db/initDB";
 
 let port = 8080;
 let app = express();
