@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../services/MatchService";
+import { matchService } from "../../../services/match/MatchService";
 
 export const NextBet = ({ betId, goalsHomeTeam, goalsAwayTeam}) => betId ? (
   <div style={{display: 'inline-block'}}>

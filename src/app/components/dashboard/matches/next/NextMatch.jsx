@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../../services/MatchService";
+import { matchService } from "../../../../services/match/MatchService";
 import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
 import { ConnectedSetMatchResultForm } from "./SetMatchResultForm";
 

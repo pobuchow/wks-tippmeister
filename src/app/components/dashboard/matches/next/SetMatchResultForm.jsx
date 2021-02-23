@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../../services/MatchService";
+import { matchService } from "../../../../services/match/MatchService";
 import { requestSetMatchResult } from "../../../../store/mutations/matchMutations";
 
 export const SetMatchResultForm = ({ match, requestSetMatchResult }) => {

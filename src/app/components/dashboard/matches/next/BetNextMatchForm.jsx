@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 const uuid = require("uuid").v4;
-import { matchService } from './../../../../services/MatchService';
+import { matchService } from './../../../../services/match/MatchService';
 import { requestBetMatch } from "../../../../store/mutations/betMutations";
 
 export const BetNextMatchForm = ({ match, bet, betMatch }) => {
