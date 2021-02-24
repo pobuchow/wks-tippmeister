@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const goalMinValue = 0;
 const goalMaxValue = 9;
 
