@@ -3,7 +3,7 @@ import { matchService } from './MatchService';
 describe(`Match Service`, () => {
     let dateSpy;
 
-    let listOfMatches = [
+    const listOfMatches = [
         {
             id: '1',
             event_datetime: new Date(2020, 12-1, 3, 18, 0, 0, 0),

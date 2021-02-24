@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { ConnectedNextBet } from "./NextBet";
-import { scoreService } from "../../../services/ScoreService";
+import { scoreService } from "../../../services/score/ScoreService";
 
 export const Scoreboard = ({ scores, gameId }) => (
   <div>
