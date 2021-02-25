@@ -8,17 +8,19 @@ import { ConnectedAddGameUserForm } from "./AddGameUserForm";
 import { ConnectedAddNextMatchForm } from "./AddNextMatchForm";
 
 export const Dashboard = ({ userId, game }) => (
-  <div>
-    <h2>dashboard</h2>
-    {_.includes(game.hosts, userId) && <ConnectedAddGameUserForm game={game} />}
-    {_.includes(game.hosts, userId) && <ConnectedAddNextMatchForm game={game} />}
-    <ConnectedLastMatch game={game.id} />
-    <ConnectedNextMatch game={game.id} />
+  <div className="page">
+    <div className="page-body-full">
+    <div className="page-body-label">dashboard</div>
     <ConnectedScoreboard
       users={game.users}
       matches={game.matches}
       game={game.id}
     />
+    <ConnectedLastMatch game={game.id} />
+    <ConnectedNextMatch game={game.id} />
+    {_.includes(game.hosts, userId) && <ConnectedAddGameUserForm game={game} />}
+    {_.includes(game.hosts, userId) && <ConnectedAddNextMatchForm game={game} />}
+    </div>
   </div>
 );
 
