@@ -5,8 +5,8 @@ import { ConnectedNextBet } from "./NextBet";
 import { scoreService } from "../../../services/score/ScoreService";
 
 export const Scoreboard = ({ scores, gameId }) => (
-  <div>
-    <h3>scoreboard</h3>
+  <div className="page-body-full">
+    {/* <div className="page-body-label">scoreboard</div> */}
     {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
       <div key={score.userId}>
         {score.name} {score.points}{" "}

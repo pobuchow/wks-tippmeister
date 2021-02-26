@@ -63,7 +63,7 @@
             focus:outline-none
             w-full;
   }
-  .icon{
+  .icon {
     @apply h-6 w-6 text-white m-auto;
   }
   .link {
@@ -74,10 +74,10 @@
       text-white 
       hover:text-green-300;
   }
-  .form-simple{
+  .form-simple {
     @apply mb-4 grid grid-cols-3 gap-4;
   }
-  .form-simple-label{
+  .form-simple-label {
     @apply col-span-2;
   }
   .page-body-label {
@@ -133,5 +133,89 @@
       focus:outline-none
       font-bold 
       text-xl;
+  }
+  .match-header {
+    @apply px-5 
+      py-3 
+      border-b-2 
+      border-green-500 
+      bg-green-500  
+      text-center 
+      text-xs 
+      font-semibold 
+      text-gray-600 
+      uppercase 
+      tracking-wider;
+  }
+  .match-row {
+    @apply px-5 
+      py-5 
+      border-b 
+      border-green-500 
+      bg-green-300
+      text-sm 
+      font-semibold 
+      text-gray-600 
+      w-2/5;
+  }
+  .match-table-frame {
+    @apply -mx-4 
+      sm:-mx-8 
+      sm:px-8 
+      py-4 
+      overflow-x-auto;
+  }
+  .match-table-div {
+    @apply inline-block 
+      min-w-full 
+      shadow 
+      rounded-lg 
+      overflow-hidden;
+  }
+  .match-table {
+    @apply min-w-full 
+      leading-normal;
+  }
+  .icon-img {
+    @apply w-full h-full;
+  }
+  .match-home-team-row {
+    @apply flex items-center;
+  }
+  .match-team-icon {
+    @apply flex-shrink-0 
+      w-10 
+      h-10 
+      hidden 
+      sm:table-cell;
+  }
+  .match-away-team-row-name {
+    @apply mr-3;
+  }
+  .match-home-team-row-name {
+    @apply ml-3;
+  }
+  .match-away-team-row {
+    @apply flex items-center float-right;
+  }
+  .match-away-team-row-name {
+    @apply ml-3;
+  }
+  .match-home-team-row-name-p {
+    @apply text-gray-900 
+      whitespace-nowrap;
+  }
+  .match-away-team-row-name-p {
+    @apply text-gray-900 
+      whitespace-nowrap 
+      text-right;
+  }
+  .match-table-result-row {
+    @apply px-5 
+      py-5 
+      border-b
+      border-green-500
+      bg-green-300
+      text-sm;
   }
 }
