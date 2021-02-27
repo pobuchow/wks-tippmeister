@@ -9,7 +9,6 @@
     "test": "jest",
     "init-db": "babel-node src/server/db/initDB",
     "server": "babel-node src/server/server",
-    "server-test": "babel-node src/server/server.spec",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\" "
   },
   "repository": {
