@@ -50,12 +50,12 @@ export const NextMatch = ({ userId, game, match }) =>
                   </div>
                 </td>
                 <td className="match-table-result-row">
-                  <p className="text-gray-900 whitespace-no-wrap text-center">
+                  <p className="match-result-p">
                     ?
                   </p>
                 </td>
                 <td className="match-table-result-row">
-                  <p className="text-gray-900 whitespace-no-wrap text-center">
+                  <p className="match-result-p">
                     ?
                   </p>
                 </td>
@@ -80,14 +80,6 @@ export const NextMatch = ({ userId, game, match }) =>
           </table>
         </div>
       </div>
-      {match.event_datetime.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-      })}{" "}
-      {match.homeTeam} - {match.awayTeam}
       {_.includes(game.hosts, userId) && (
         <ConnectedSetMatchResultForm match={match} />
       )}

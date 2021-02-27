@@ -205,6 +205,9 @@
     @apply text-gray-900 
       whitespace-nowrap;
   }
+  .match-result-p {
+    @apply text-gray-900 whitespace-nowrap text-center;
+  }
   .match-away-team-row-name-p {
     @apply text-gray-900 
       whitespace-nowrap 
