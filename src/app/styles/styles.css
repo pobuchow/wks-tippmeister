@@ -73,7 +73,25 @@
       hover:text-green-300;
   }
   .form-simple {
-    @apply mb-4 grid grid-cols-3 gap-4;
+    @apply mb-4 
+      grid 
+      grid-cols-3 
+      gap-4;
+  }
+  .form-complex {
+    @apply mb-4 
+      grid 
+      grid-cols-1 
+      sm:grid-cols-2 
+      md:grid-cols-2 
+      xl:grid-cols-2
+      gap-4;
+  }
+  .form-complex-button {
+    @apply col-span-1 
+      sm:col-span-2 
+      md:col-span-2 
+      xl:col-span-2;
   }
   .form-simple-label {
     @apply col-span-2;

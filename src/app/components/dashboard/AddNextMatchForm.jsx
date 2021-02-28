@@ -12,8 +12,8 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
 
   return (
     <div>
-      <h3>add next match</h3>
-      <form>
+      <div className="page-body-label">add next match</div>
+      <form className="form-complex">
         <label>
           home team:
           <input
@@ -34,7 +34,7 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
           event date:
           <input
             type="date"
-            value={moment(eventDate).format('YYYY-MM-DD')}
+            value={moment(eventDate).format("YYYY-MM-DD")}
             onChange={(e) => setEventDate(new Date(e.target.value))}
           />
         </label>
@@ -42,15 +42,33 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
           event time:
           <input
             type="time"
-            value={moment(eventTime).format('HH:mm')}
-            onChange={(e) => setEventTime(moment(e.target.value, 'HH:mm').toDate())}
+            value={moment(eventTime).format("HH:mm")}
+            onChange={(e) =>
+              setEventTime(moment(e.target.value, "HH:mm").toDate())
+            }
           />
         </label>
         <button
+          className="form-complex-button"
           type="button"
-          onClick={() => addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime)}
+          onClick={() =>
+            addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime)
+          }
         >
-        add new match to game!
+          <svg
+            className="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </button>
       </form>
     </div>
@@ -60,9 +78,20 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime) {
-      dispatch(requestAddNewMatchToGame(ownProps.game, homeTeam, awayTeam, eventDate, eventTime));
+      dispatch(
+        requestAddNewMatchToGame(
+          ownProps.game,
+          homeTeam,
+          awayTeam,
+          eventDate,
+          eventTime
+        )
+      );
     },
   };
 };
 
-export const ConnectedAddNextMatchForm = connect(null, mapDispatchToProps)(AddNextMatchForm);
+export const ConnectedAddNextMatchForm = connect(
+  null,
+  mapDispatchToProps
+)(AddNextMatchForm);
