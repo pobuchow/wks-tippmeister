@@ -131,19 +131,6 @@
       font-bold 
       text-xl;
   }
-  .match-header {
-    @apply px-5 
-      py-3 
-      border-b-2 
-      border-green-500 
-      bg-green-500  
-      text-center 
-      text-xs 
-      font-semibold 
-      text-gray-600 
-      uppercase 
-      tracking-wider;
-  }
   .match-row {
     @apply px-5 
       py-5 
@@ -155,20 +142,20 @@
       text-gray-600 
       w-2/5;
   }
-  .match-table-frame {
+  .table-frame {
     @apply -mx-4 
       sm:-mx-8 
       sm:px-8 
       py-4 
       overflow-x-auto;
   }
-  .match-table-div {
+  .table-div {
     @apply inline-block 
       min-w-full 
       shadow
       overflow-hidden;
   }
-  .match-table {
+  .table {
     @apply min-w-full 
       leading-normal;
   }
@@ -216,5 +203,67 @@
       border-green-500
       bg-green-300
       text-sm;
+  }
+  .header {
+    @apply px-5 
+      py-3 
+      border-b-2 
+      border-green-500 
+      bg-green-500  
+      text-center 
+      text-xs 
+      font-semibold 
+      text-gray-600 
+      uppercase 
+      tracking-wider;
+  }
+  .scoreboard-header{
+    @apply px-5 
+      py-3 
+      border-b-2 
+      border-green-500 
+      bg-green-500  
+      text-left 
+      text-xs 
+      font-semibold 
+      text-gray-600 
+      uppercase 
+      tracking-wider;
+  }
+  .scoreboard-points-row {
+    @apply px-5 
+    py-5 
+    border-b 
+    border-green-500 
+    bg-green-300
+    text-center
+    text-sm 
+    font-semibold 
+    text-gray-600 
+    w-1/5;
+  }
+  .scoreboard-score-row {
+    @apply px-5 
+    py-5 
+    border-b 
+    border-green-500 
+    bg-green-300
+    text-center
+    text-sm 
+    font-semibold 
+    text-gray-600 
+    w-2/5;
+  }
+  .scoreboard-name-row {
+    @apply px-5 
+    py-5 
+    border-b 
+    border-green-500 
+    bg-green-300
+    text-left
+    text-sm 
+    font-semibold 
+    text-gray-600 
+    w-2/5;
   }
 }

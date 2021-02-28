@@ -4,26 +4,26 @@ export const MatchTable = ({ label, match }) =>
   match ? (
     <div>
       <div className="page-body-label">{label}</div>
-      <div className="match-table-frame">
-        <div className="match-table-div">
-          <table className="match-table">
+      <div className="table-frame">
+        <div className="table-div">
+          <table className="table">
             <thead>
               <tr>
-                <th className="match-header">Home</th>
-                <th className="match-header">
+                <th className="header">Home</th>
+                <th className="header">
                   {match.event_datetime.toLocaleDateString(undefined, {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
                   })}
                 </th>
-                <th className="match-header">
+                <th className="header">
                   {match.event_datetime.toLocaleTimeString(undefined, {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
                 </th>
-                <th className="match-header">Away</th>
+                <th className="header">Away</th>
               </tr>
             </thead>
             <tbody>

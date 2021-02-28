@@ -6,13 +6,28 @@ import { scoreService } from "../../../services/score/ScoreService";
 
 export const Scoreboard = ({ scores, gameId }) => (
   <div className="page-body-full">
-    {/* <div className="page-body-label">scoreboard</div> */}
-    {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
-      <div key={score.userId}>
-        {score.name} {score.points}{" "}
-        <ConnectedNextBet gameId={gameId} userId={score.userId} />
+    <div className="table-frame">
+      <div className="table-div">
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="scoreboard-header">player</th>
+              <th className="header">points</th>
+              <th className="header">next bet</th>
+            </tr>
+          </thead>
+          <tbody>
+            {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
+              <tr key={score.userId}>
+                <td className="scoreboard-name-row">{score.name}</td>
+                <td className="scoreboard-points-row">{score.points}</td>
+                <td className="scoreboard-score-row"><ConnectedNextBet gameId={gameId} userId={score.userId} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    ))}
+    </div>
   </div>
 );
 
