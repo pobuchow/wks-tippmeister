@@ -16,6 +16,8 @@
     "url": "git+https://github.com/pobuchow/wks-tippmeister-client.git"
   },
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
     "coverageReporters": [
       "text",
       "cobertura"
