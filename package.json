@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack",
     "dev": "webpack serve --host 0.0.0.0 --port 3000 --mode=development ",
-    "test": "jest",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "init-db": "babel-node src/server/db/initDB",
     "server": "babel-node src/server/server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\" "
@@ -14,6 +14,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pobuchow/wks-tippmeister-client.git"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
   },
   "keywords": [],
   "author": "",

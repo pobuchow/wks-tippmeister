@@ -4,3 +4,4 @@ package-lock.json
 debug.log
 /coverage
 report*
+/output/
