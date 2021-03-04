@@ -14,7 +14,13 @@ pipeline {
                 sh 'npm run test' 
             }
             post {
-                step([$class: 'CoberturaPublisher', coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml'])
+                always {
+                    step([
+                        $class: 'CoberturaPublisher', 
+                        coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml'
+                    ])
+                }
+                
             }
         }
     }
