@@ -23,5 +23,16 @@ pipeline {
                 
             }
         }
+        stage('Static Analysis') { 
+            steps {
+                sh ' ./node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml || true'
+            }
+            post {
+                always {
+                  // Warnings Next Generation Plugin
+                  recordIssues enabledForFailure: true, tools: [esLint(pattern: 'eslint.xml')]
+                }
+              }
+        }
     }
 }
