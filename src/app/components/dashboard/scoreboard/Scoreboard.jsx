@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { ConnectedNextBet } from "./NextBet";
-import { scoreService } from "../../../services/score/ScoreService";
+import calcPoints from "../../../services/score/ScoreService";
 
 export const Scoreboard = ({ scores, gameId }) => (
   <div className="page-body-full">
@@ -42,7 +42,7 @@ function mapState2Props(state, ownProps) {
     return {
       userId: user.id,
       name: user.name,
-      points: scoreService.calcPoints(
+      points: calcPoints(
         matches, 
         _.filter(state.bets, { 'game': ownProps.game, 'owner': user.id }))
     };

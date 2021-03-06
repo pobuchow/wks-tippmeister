@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 const uuid = require("uuid").v4;
-import { matchService } from './../../../../services/match/MatchService';
+import {
+  goalMinValue,
+  goalMaxValue,
+  handleGoalInput,
+  isMatchStarted,
+} from './../../../../services/match/MatchService';
 import { requestBetMatch } from "../../../../store/mutations/betMutations";
 
 export const BetNextMatchForm = ({ match, bet, betMatch }) => {
@@ -16,25 +21,25 @@ export const BetNextMatchForm = ({ match, bet, betMatch }) => {
           {match.homeTeam}
           <input
             type="number"
-            min={matchService.getGoalMinValue()}
-            max={matchService.getGoalMaxValue()}
+            min={goalMinValue}
+            max={goalMaxValue}
             value={goalsHomeTeam}
-            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsHomeTeam)}
+            onChange={(e) => handleGoalInput(e.target.value, setGoalsHomeTeam)}
           />
         </label>
         <label>
           {match.awayTeam}
           <input
             type="number"
-            min={matchService.getGoalMinValue()}
-            max={matchService.getGoalMaxValue()}
+            min={goalMinValue}
+            max={goalMaxValue}
             value={goalsAwayTeam}
-            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsAwayTeam)}
+            onChange={(e) => handleGoalInput(e.target.value, setGoalsAwayTeam)}
           />
         </label>
         <button
           type="button"
-          disabled={matchService.isMatchStarted(match)}
+          disabled={isMatchStarted(match)}
           onClick={() => betMatch(bet, goalsHomeTeam, goalsAwayTeam)}
         >
           bet this match!

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../../services/match/MatchService";
+import {
+  goalMinValue,
+  goalMaxValue,
+  handleGoalInput,
+  isMatchOver,
+} from "../../../../services/match/MatchService";
 import { requestSetMatchResult } from "../../../../store/mutations/matchMutations";
 
 export const SetMatchResultForm = ({ match, requestSetMatchResult }) => {
@@ -15,25 +20,25 @@ export const SetMatchResultForm = ({ match, requestSetMatchResult }) => {
           home team goals:
           <input
             type="number"
-            min={matchService.getGoalMinValue()}
-            max={matchService.getGoalMaxValue()}
+            min={goalMinValue}
+            max={goalMaxValue}
             value={goalsHomeTeam}
-            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsHomeTeam)}
+            onChange={(e) => handleGoalInput(e.target.value, setGoalsHomeTeam)}
           />
         </label>
         <label>
           away team goals:
           <input
             type="number"
-            min={matchService.getGoalMinValue()}
-            max={matchService.getGoalMaxValue()}
+            min={goalMinValue}
+            max={goalMaxValue}
             value={goalsAwayTeam}
-            onChange={(e) => matchService.handleGoalInput(e.target.value, setGoalsAwayTeam)}
+            onChange={(e) => handleGoalInput(e.target.value, setGoalsAwayTeam)}
           />
         </label>
         <button
           type="button"
-          disabled={!matchService.isMatchOver(match)}
+          disabled={!isMatchOver(match)}
           onClick={() => requestSetMatchResult(goalsHomeTeam, goalsAwayTeam)}
         >
         update match!

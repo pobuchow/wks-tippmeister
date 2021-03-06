@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../services/match/MatchService";
+import {
+  getNextMatch,
+} from "../../../services/match/MatchService";
 
 export const NextBet = ({ betId, goalsHomeTeam, goalsAwayTeam}) => betId ? (
   <div style={{display: 'inline-block'}}>
@@ -18,7 +20,7 @@ function mapState2Props(state, ownProps) {
   let matches =_.filter(state.matches, function (match) {
     return _.includes(game.matches, match.id);
   });
-  let nextMatch = matchService.getNextMatch(matches);
+  let nextMatch = getNextMatch(matches);
   if(!nextMatch){
     return {};
   }

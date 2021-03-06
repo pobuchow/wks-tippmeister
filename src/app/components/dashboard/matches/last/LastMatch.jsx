@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { MatchTable } from "./../table/MatchTable";
-import { matchService } from "../../../../services/match/MatchService";
+import { getLastMatch } from "../../../../services/match/MatchService";
 
 const label = "last match";
 
@@ -19,7 +19,7 @@ function mapState2Props(state, ownProps) {
     return _.includes(game.matches, match.id);
   });
   return {
-    match: matchService.getLastMatch(matches),
+    match: getLastMatch(matches),
   };
 }
 

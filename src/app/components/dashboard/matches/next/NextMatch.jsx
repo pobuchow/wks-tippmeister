@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { matchService } from "../../../../services/match/MatchService";
+import {
+  getNextMatch,
+} from "../../../../services/match/MatchService";
 import { MatchTable } from "./../table/MatchTable";
 import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
 import { ConnectedSetMatchResultForm } from "./SetMatchResultForm";
@@ -24,7 +26,7 @@ function mapState2Props(state, ownProps) {
   const matches = _.filter(state.matches, function (match) {
     return _.includes(game.matches, match.id);
   });
-  let match = game.isFinished ? null : matchService.getNextMatch(matches);
+  let match = game.isFinished ? null : getNextMatch(matches);
   return {
     userId: state.session.id,
     game: game,
