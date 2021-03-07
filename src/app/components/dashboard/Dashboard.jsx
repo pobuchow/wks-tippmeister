@@ -16,7 +16,7 @@ export const Dashboard = ({ userId, game }) => (
       matches={game.matches}
       game={game.id}
     />
-    <div class="dashboard-host-panel">
+    <div className="dashboard-host-panel">
       {_.includes(game.hosts, userId) && <ConnectedAddGameUserForm game={game} />}
       {_.includes(game.hosts, userId) && <ConnectedAddNextMatchForm game={game} />}
     </div>
