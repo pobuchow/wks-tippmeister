@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Static Analysis') { 
             steps {
-                sh ' ./node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml || true'
+                sh ' ./node_modules/eslint/bin/eslint.js --ext .jsx --ext .js -f checkstyle src > eslint.xml || true'
             }
             post {
                 always {
