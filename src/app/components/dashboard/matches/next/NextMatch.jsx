@@ -4,7 +4,7 @@ import _ from "lodash";
 import {
   getNextMatch,
 } from "../../../../services/match/MatchService";
-import { MatchTable } from "./../table/MatchTable";
+import MatchTable from "./../table/MatchTable";
 import { ConnectedBetNextMatchForm } from "./BetNextMatchForm";
 import { ConnectedSetMatchResultForm } from "./SetMatchResultForm";
 
