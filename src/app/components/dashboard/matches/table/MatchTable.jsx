@@ -84,8 +84,8 @@ MatchTable.propTypes = {
     event_datetime: PropTypes.instanceOf(Date).isRequired,
     homeTeam: PropTypes.string.isRequired,
     awayTeam: PropTypes.string.isRequired,
-    goalsHomeTeam: PropTypes.number.isRequired,
-    goalsAwayTeam: PropTypes.number.isRequired,
+    goalsHomeTeam: PropTypes.number,
+    goalsAwayTeam: PropTypes.number,
   }),
   label: PropTypes.string.isRequired,
 };
