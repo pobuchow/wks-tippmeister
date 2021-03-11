@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const MatchTable = ({ label, match }) => (match ? (
   <div>
@@ -11,17 +12,10 @@ const MatchTable = ({ label, match }) => (match ? (
             <tr>
               <th className="header">Home</th>
               <th className="header">
-                {match.event_datetime.toLocaleDateString(undefined, {
-                  year: 'numeric',
-                  month: '2-digit',
-                  day: '2-digit',
-                })}
+                {moment(match.event_datetime).format('YYYY-MM-DD')}
               </th>
               <th className="header">
-                {match.event_datetime.toLocaleTimeString(undefined, {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
+                {moment(match.event_datetime).format('HH:mm')}
               </th>
               <th className="header">Away</th>
             </tr>
